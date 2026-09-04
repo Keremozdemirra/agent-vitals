@@ -1,0 +1,8 @@
+# One repository per line, as owner/name.
+#
+# A line here means: keep the repository in the census (the counts must stay
+# honest), but publish no description for it. Owners who ask for their text to
+# be dropped get added here, and the next run drops it.
+#
+# Blank lines and lines starting with # are ignored. Matching is
+# case-insensitive.

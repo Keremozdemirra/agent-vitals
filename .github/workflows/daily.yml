@@ -1,0 +1,51 @@
+name: daily census
+
+# 07:00 UTC — 09:00 in Berlin during CEST, 08:00 during CET. Cron has no
+# daylight-saving awareness; the contribution graph uses UTC days anyway.
+on:
+  schedule:
+    - cron: "0 7 * * *"
+  workflow_dispatch:
+
+# The only permission this job needs. No personal access token exists anywhere
+# in this repository: GITHUB_TOKEN is minted per run and scoped to this repo.
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-census
+  cancel-in-progress: false
+
+jobs:
+  census:
+    runs-on: ubuntu-latest
+    # Measured: ~18 minutes per topic query at the API's 30-requests-per-minute
+    # search limit, so roughly 40 minutes for the pair. The ceiling is slack,
+    # not a target.
+    timeout-minutes: 75
+    steps:
+      - name: Check out
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - name: Collect
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 collect.py
+
+      - name: Render
+        run: python3 render.py
+
+      - name: Commit
+        run: |
+          set -euo pipefail
+          git config user.name "Kerem Özdemir"
+          git config user.email "151446743+Keremozdemirra@users.noreply.github.com"
+          git add data README.md docs
+          if git diff --cached --quiet; then
+            echo "nothing changed; not committing"
+            exit 0
+          fi
+          COUNT=$(python3 -c "import json,pathlib;d=json.loads(pathlib.Path('data/servers.json').read_text());print(d['count'])")
+          NEW=$(python3 -c "import json,glob;f=sorted(glob.glob('data/daily/*.json'))[-1];print(json.load(open(f))['churn']['arrived_count'])")
+          git commit -m "census $(date -u +%F): ${COUNT} repositories, +${NEW} new"
+          git push
