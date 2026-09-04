@@ -19,10 +19,10 @@ concurrency:
 jobs:
   census:
     runs-on: ubuntu-latest
-    # Measured: ~18 minutes per topic query at the API's 30-requests-per-minute
-    # search limit, so roughly 40 minutes for the pair. The ceiling is slack,
-    # not a target.
-    timeout-minutes: 75
+    # Measured on this runner: ~945 results/minute against the search API's
+    # 30-requests-per-minute limit. Thirteen queries across two tiers is roughly
+    # 60,000 gross results, so about an hour. The ceiling is slack, not a target.
+    timeout-minutes: 180
     steps:
       - name: Check out
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
