@@ -25,25 +25,42 @@ ROOT = Path(__file__).resolve().parent
 DATA = ROOT / "data"
 DAILY = DATA / "daily"
 API = "https://api.github.com/search/repositories"
-UA = "mcp-vitals (+https://github.com/Keremozdemirra/mcp-vitals)"
+UA = "agent-vitals (+https://github.com/Keremozdemirra/agent-vitals)"
 
 # Each query is capped by GitHub at 1000 results, so every query is sliced by
 # star count until each slice fits under the cap. That is what makes this a
 # census rather than a top-1000 sample.
-# The subject is the MCP server ecosystem itself, so the corpus is the two
-# topics that actually name it. Broader topics (`mcp`, `claude-code`) return
-# 38k repositories each, most of them unrelated, and would turn every headline
-# number into a statement about GitHub rather than about MCP.
-QUERIES = [
-    "topic:mcp-server",
-    "topic:model-context-protocol",
+# Two tiers, because one star floor cannot serve both halves of this subject.
+#
+# The MCP topics name a specific thing, so two stars is enough to mean "someone
+# other than the author noticed". The broad agent topics are also attached to
+# every tutorial, course repo and fork in the field; at two stars they return
+# 100k results, drown the signal and push the run past four hours. Ten stars is
+# where those topics start describing tools rather than exercises.
+#
+# The floor per group is published in the data. Changing one changes every
+# headline number, so it is a stated parameter, not a tuning knob.
+GROUPS = [
+    ("mcp", 2, [
+        "topic:mcp-server",
+        "topic:model-context-protocol",
+    ]),
+    ("agents", 10, [
+        "topic:mcp",
+        "topic:claude-code",
+        "topic:ai-agents",
+        "topic:ai-agent",
+        "topic:agent-skills",
+        "topic:agentic-ai",
+        "topic:claude-skills",
+        "topic:autonomous-agents",
+        "topic:llm-agents",
+        "topic:agent-framework",
+        "topic:llm-tools",
+    ]),
 ]
 
-# Repositories with 0 or 1 stars are overwhelmingly forks, scaffolds and
-# one-evening experiments. Including them would make "most of this ecosystem is
-# unmaintained" true by construction and therefore worthless. The floor is
-# stated in the README: at least two people noticed it.
-MIN_STARS = 2
+QUERIES = [q for _, _, qs in GROUPS for q in qs]
 
 EPOCH = dt.date(2008, 1, 1)
 TODAY = dt.date.today().isoformat()
@@ -227,13 +244,14 @@ def main() -> int:
     errors: list[str] = []
 
     previous: dict[str, dict] = {}
+    loaded: dict = {}
     prior_path = DATA / "servers.json"
     if prior_path.exists():
         loaded = json.loads(prior_path.read_text())
         previous = {r["full_name"]: r for r in loaded.get("repositories", [])}
 
     try:
-        probe = api_get(search_url(f"{QUERIES[0]} {star_term(MIN_STARS, None)}", 1))
+        probe = api_get(search_url(f"{GROUPS[0][2][0]} {star_term(GROUPS[0][1], None)}", 1))
         if not probe.get("items"):
             print("pre-flight returned no items; aborting before the long run",
                   file=sys.stderr)
@@ -243,10 +261,15 @@ def main() -> int:
         return 1
 
     raw: dict[str, dict] = {}
-    for query in QUERIES:
-        print(f"query: {query} (stars >= {MIN_STARS})", file=sys.stderr)
-        harvest(query, (MIN_STARS, None), None, raw, errors)
-        print(f"  running total: {len(raw)}", file=sys.stderr)
+    group_of: dict[str, str] = {}
+    for group, floor, queries in GROUPS:
+        for query in queries:
+            print(f"query: {query} (stars >= {floor})", file=sys.stderr)
+            before = set(raw)
+            harvest(query, (floor, None), None, raw, errors)
+            for name in set(raw) - before:
+                group_of.setdefault(name, group)
+            print(f"  running total: {len(raw)}", file=sys.stderr)
 
     if not raw:
         print("collected nothing; refusing to overwrite the index", file=sys.stderr)
@@ -276,6 +299,7 @@ def main() -> int:
         prior = previous.get(full_name)
         records.append({
             "full_name": full_name,
+            "group": group_of.get(full_name, "agents"),
             "url": item.get("html_url", ""),
             "description": "" if full_name.lower() in denied
                            else clean(item.get("description")),
@@ -318,6 +342,14 @@ def main() -> int:
                    rec["license_state"], rec["license"])
         licences[key] = licences.get(key, 0) + 1
 
+    prior_groups = (loaded.get("groups") if prior_path.exists() else None) or {}
+    now_groups = {name: {"min_stars": floor, "queries": qs}
+                  for name, floor, qs in GROUPS}
+    scope_changed = bool(prior_groups) and prior_groups != now_groups
+    if scope_changed:
+        print("scope changed since the last run; churn is not comparable",
+              file=sys.stderr)
+
     seen_now = set(raw)
     seen_before = set(previous)
     arrivals = sorted(seen_now - seen_before)
@@ -335,7 +367,7 @@ def main() -> int:
 
     snapshot = {
         "date": TODAY,
-        "min_stars": MIN_STARS,
+        "groups": {name: floor for name, floor, _ in GROUPS},
         "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
         "status": "partial" if errors else "complete",
         "totals": {
@@ -352,6 +384,8 @@ def main() -> int:
                 100 * len(eligible_abandoned) / max(len(eligible), 1), 1),
         },
         "by_status": dict(sorted(by_status.items())),
+        "by_group": {name: sum(1 for r in records if r["group"] == name)
+                     for name, _, _ in GROUPS},
         "by_license": dict(sorted(licences.items(), key=lambda kv: -kv[1])[:15]),
         "churn": {
             "arrived": arrivals[:200],
@@ -361,6 +395,8 @@ def main() -> int:
             "newly_abandoned": newly_abandoned[:100],
             "newly_archived": newly_archived[:100],
             "first_run": not previous,
+            "scope_changed": scope_changed,
+            "previous_scope": {k: v.get("min_stars") for k, v in prior_groups.items()},
         },
         "errors": errors[:25],
     }
@@ -369,7 +405,8 @@ def main() -> int:
         "generated_at": snapshot["generated_at"],
         "source": "GitHub REST API v3, public repository metadata only",
         "queries": QUERIES,
-        "min_stars": MIN_STARS,
+        "groups": {name: {"min_stars": floor, "queries": qs}
+                   for name, floor, qs in GROUPS},
         "count": len(records),
         "repositories": records,
     }
@@ -385,7 +422,7 @@ def main() -> int:
         "{" + meta + ",\n \"repositories\": [\n  " + body + "\n ]\n}\n")
     (DAILY / f"{TODAY}.json").write_text(json.dumps(snapshot, indent=1, ensure_ascii=False) + "\n")
 
-    cols = ["full_name", "url", "stars", "forks", "language", "license",
+    cols = ["full_name", "group", "url", "stars", "forks", "language", "license",
             "license_state", "status",
             "days_since_push", "pushed_at", "created_at", "archived", "is_fork",
             "first_seen", "description"]

@@ -62,14 +62,15 @@ def render_readme(index: dict, today: dict, history: list[dict]) -> str:
     date = today["date"]
 
     lines = [
-        "# mcp-vitals",
+        "# agent-vitals",
         "",
-        "**A daily census of the MCP and agent-tooling ecosystem on GitHub — not a list of",
-        "what exists, but a measurement of what is still alive.**",
+        "**A daily census of the AI agent tooling ecosystem on GitHub — MCP servers, agent",
+        "frameworks, skills and the tools around them. Not a list of what exists, but a",
+        "measurement of what is still alive.**",
         "",
-        "Every list of MCP servers tells you what was published. None of them tell you what",
-        "has been touched since. This repository answers three questions every day, from",
-        "public GitHub metadata, and keeps the answers as a time series:",
+        "Every awesome-list tells you what was published. None of them tell you what has",
+        "been touched since. This repository answers three questions every day, from public",
+        "GitHub metadata, and keeps the answers as a time series:",
         "",
         "1. How much of the ecosystem is still maintained?",
         "2. How much of it carries a licence you could actually use at work?",
@@ -77,9 +78,11 @@ def render_readme(index: dict, today: dict, history: list[dict]) -> str:
         "",
         f"## {date}",
         "",
-        f"- **{t['repositories']:,} repositories** indexed across "
-        f"{len(index['queries'])} topic {plural(len(index['queries']), 'query', 'queries')}, "
-        f"at {index.get('min_stars', 0)} stars or more.",
+        f"- **{t['repositories']:,} repositories** across "
+        f"{len(index['queries'])} topic {plural(len(index['queries']), 'query', 'queries')} in "
+        f"{len(index.get('groups', {}))} tiers: "
+        + ", ".join(f"**{n}** ({c:,}, {index['groups'][n]['min_stars']}+ stars)"
+                    for n, c in today.get("by_group", {}).items()) + ".",
         f"- **{t['active_pct']}%** pushed in the last 30 days.",
         f"- **{t['no_licence']:,} ({t['no_licence_pct']}%) have no licence file at all**, which leaves them "
         "under exclusive copyright by default: no permission to use, copy or modify them, whatever the "
@@ -91,6 +94,10 @@ def render_readme(index: dict, today: dict, history: list[dict]) -> str:
         f"{t['abandoned_pct']}% across the whole index is an artefact of how young this ecosystem is.",
         (f"- First run: the whole index is new. Churn against yesterday appears from tomorrow."
          if today["churn"].get("first_run")
+         else "- The query set changed today, so the arrivals below are repositories that came "
+              "into scope, not repositories that appeared in the world. Churn is comparable "
+              "again from the next run."
+         if today["churn"].get("scope_changed")
          else f"- Churn since the previous run: **+{today['churn']['arrived_count']} new**, "
               f"**-{today['churn']['left_count']} gone**."),
         "",
@@ -162,7 +169,7 @@ def render_readme(index: dict, today: dict, history: list[dict]) -> str:
         "## Use the data",
         "",
         "```bash",
-        "curl -sL https://raw.githubusercontent.com/Keremozdemirra/mcp-vitals/main/data/servers.csv -o servers.csv",
+        "curl -sL https://raw.githubusercontent.com/Keremozdemirra/agent-vitals/main/data/servers.csv -o servers.csv",
         "```",
         "",
         "| File | What it is |",
@@ -179,7 +186,15 @@ def render_readme(index: dict, today: dict, history: list[dict]) -> str:
         "",
         "- Source: the GitHub REST search API, public repository metadata only. Nothing is",
         "  cloned, downloaded or executed.",
-        f"- Queries: {', '.join('`' + q + '`' for q in index['queries'])}.",
+        "- Tiers and their star floors:",
+    ] + [
+        f"  - `{name}` — {cfg['min_stars']}+ stars: "
+        + ", ".join(f"`{q}`" for q in cfg["queries"])
+        for name, cfg in index.get("groups", {}).items()
+    ] + [
+        "  The MCP topics name one specific thing, so two stars is enough. The broad agent",
+        "  topics are also attached to every tutorial and course repository in the field; ten",
+        "  stars is where they start describing tools rather than exercises.",
         "- Each query is sliced by star count until every slice fits under GitHub's",
         "  1000-result ceiling, so this is a census rather than a top-1000 sample.",
         "- `status` is derived from `pushed_at` alone. It measures whether a repository is",
@@ -276,8 +291,8 @@ def render_html(index: dict, today: dict, history: list[dict]) -> str:
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>mcp-vitals — is the MCP ecosystem alive?</title>
-<meta name="description" content="A daily census of the MCP and agent-tooling ecosystem on GitHub: what is maintained, what is abandoned, and what has no licence.">
+<title>agent-vitals — is the AI agent ecosystem alive?</title>
+<meta name="description" content="A daily census of the AI agent tooling ecosystem on GitHub: what is maintained, what is abandoned, and what has no licence.">
 <style>
 :root{{--bg:#fbfaf8;--fg:#1a1a1a;--mut:#6b6b6b;--line:#e3e0da;--acc:#0b6b52}}
 @media(prefers-color-scheme:dark){{:root{{--bg:#111312;--fg:#e8e6e1;--mut:#8f8f8b;--line:#282b2a;--acc:#4ec08f}}}}
@@ -307,8 +322,8 @@ a{{color:var(--acc)}}
 .wrap{{overflow-x:auto}}
 footer{{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--line);color:var(--mut);font-size:.85rem;font-family:ui-sans-serif,system-ui}}
 </style></head><body><main>
-<h1>mcp-vitals</h1>
-<p class="sub">A daily census of the MCP and agent-tooling ecosystem — not what exists, but what is still alive. {html.escape(today['date'])}.</p>
+<h1>agent-vitals</h1>
+<p class="sub">A daily census of the AI agent tooling ecosystem — MCP servers, frameworks, skills. Not what exists, but what is still alive. {html.escape(today['date'])}.</p>
 <div class="grid">
 <div class="cell"><span class="big">{t['repositories']:,}</span><span class="lab">repositories</span></div>
 <div class="cell"><span class="big">{t['active_pct']}%</span><span class="lab">pushed in 30 days</span></div>
@@ -324,7 +339,7 @@ footer{{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--line);colo
 Source: GitHub REST API, public metadata only — nothing cloned, downloaded or executed.
 <code>status</code> is derived from <code>pushed_at</code>: it measures activity, not quality or safety.
 Compilation CC0 · code MIT · each description belongs to its author and links to its source ·
-<a href="https://github.com/Keremozdemirra/mcp-vitals">repository</a>.
+<a href="https://github.com/Keremozdemirra/agent-vitals">repository</a>.
 Generated {html.escape(today['generated_at'])}.
 </footer>
 </main></body></html>
