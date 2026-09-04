@@ -13,18 +13,18 @@ public GitHub metadata, and keeps the answers as a time series:
 
 ## 2026-09-04
 
-- **16,100 repositories** indexed across 2 topic queries, at 2 stars or more.
+- **16,106 repositories** indexed across 2 topic queries, at 2 stars or more.
 - **46.3%** pushed in the last 30 days.
-- **3,394 (21.1%) have no licence file at all**, which leaves them under exclusive copyright by default: no permission to use, copy or modify them, whatever the README suggests. A further 1,015 (6.3%) carry a licence GitHub cannot map to a standard identifier — those are licensed, just not in a way a procurement review waves through.
+- **3,395 (21.1%) have no licence file at all**, which leaves them under exclusive copyright by default: no permission to use, copy or modify them, whatever the README suggests. A further 1,014 (6.3%) carry a licence GitHub cannot map to a standard identifier — those are licensed, just not in a way a procurement review waves through.
 - Only 3,807 of these repositories are even a year old. Among those, **34.9% have not been pushed since** — the headline 8.2% across the whole index is an artefact of how young this ecosystem is.
-- First run: the whole index is new. Churn against yesterday appears from tomorrow.
+- Churn since the previous run: **+6 new**, **-0 gone**.
 
 ### Maintenance status
 
 | Status | Repositories | Share | Meaning |
 | --- | ---: | ---: | --- |
-| active | 7,447 | 46.3% | pushed within 30 days |
-| slowing | 3,006 | 18.7% | 31-90 days |
+| active | 7,454 | 46.3% | pushed within 30 days |
+| slowing | 3,005 | 18.7% | 31-90 days |
 | stale | 4,069 | 25.3% | 91-365 days |
 | abandoned | 1,327 | 8.2% | no push in over a year |
 | archived | 251 | 1.6% | archived by its owner |
@@ -37,10 +37,10 @@ it to a standard identifier.
 
 | Licence | Repositories | Share |
 | --- | ---: | ---: |
-| MIT | 8,795 | 54.6% |
-| no licence file | 3,394 | 21.1% |
-| Apache-2.0 | 1,982 | 12.3% |
-| licence GitHub cannot identify | 1,015 | 6.3% |
+| MIT | 8,800 | 54.6% |
+| no licence file | 3,395 | 21.1% |
+| Apache-2.0 | 1,983 | 12.3% |
+| licence GitHub cannot identify | 1,014 | 6.3% |
 | AGPL-3.0 | 407 | 2.5% |
 | GPL-3.0 | 223 | 1.4% |
 | BSD-3-Clause | 52 | 0.3% |
@@ -54,29 +54,29 @@ Ranked by stars, restricted to repositories pushed within the last 30 days.
 
 | Repository | Stars | Licence | Last push | Description |
 | --- | ---: | --- | --- | --- |
-| [n8n-io/n8n](https://github.com/n8n-io/n8n) | 203,297 | non-standard | 2026-09-04 | Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code,  |
-| [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) | 106,809 | Apache-2.0 | 2026-09-04 | An open-source AI agent that brings the power of Gemini directly into your terminal. |
-| [koala73/worldmonitor](https://github.com/koala73/worldmonitor) | 85,525 | AGPL-3.0 | 2026-09-04 | Real-time global intelligence dashboard. AI-powered news aggregation, geopolitical monitoring, and infrastruct |
-| [D4Vinci/Scrapling](https://github.com/D4Vinci/Scrapling) | 78,359 | BSD-3-Clause | 2026-09-02 | 🕷️ An adaptive Web Scraping framework that handles everything from a single request to a full-scale crawl! |
-| [ruvnet/ruflo](https://github.com/ruvnet/ruflo) | 70,422 | MIT | 2026-09-03 | 🌊 The original agent meta-harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, an |
-| [sansan0/TrendRadar](https://github.com/sansan0/TrendRadar) | 62,029 | GPL-3.0 | 2026-09-03 | ⭐AI-driven public opinion & trend monitor with multi-platform aggregation, RSS, and smart alerts.🎯 告别信息过载，你的 A |
+| [n8n-io/n8n](https://github.com/n8n-io/n8n) | 203,304 | non-standard | 2026-09-04 | Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code,  |
+| [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) | 106,812 | Apache-2.0 | 2026-09-04 | An open-source AI agent that brings the power of Gemini directly into your terminal. |
+| [koala73/worldmonitor](https://github.com/koala73/worldmonitor) | 85,528 | AGPL-3.0 | 2026-09-04 | Real-time global intelligence dashboard. AI-powered news aggregation, geopolitical monitoring, and infrastruct |
+| [D4Vinci/Scrapling](https://github.com/D4Vinci/Scrapling) | 78,365 | BSD-3-Clause | 2026-09-02 | 🕷️ An adaptive Web Scraping framework that handles everything from a single request to a full-scale crawl! |
+| [ruvnet/ruflo](https://github.com/ruvnet/ruflo) | 70,427 | MIT | 2026-09-03 | 🌊 The original agent meta-harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, an |
+| [sansan0/TrendRadar](https://github.com/sansan0/TrendRadar) | 62,031 | GPL-3.0 | 2026-09-03 | ⭐AI-driven public opinion & trend monitor with multi-platform aggregation, RSS, and smart alerts.🎯 告别信息过载，你的 A |
 | [upstash/context7](https://github.com/upstash/context7) | 61,607 | MIT | 2026-09-04 | Context7 Platform -- Up-to-date code documentation for LLMs and AI code editors |
-| [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) | 50,881 | Apache-2.0 | 2026-09-04 | Chrome DevTools for coding agents |
+| [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) | 50,884 | Apache-2.0 | 2026-09-04 | Chrome DevTools for coding agents |
 | [HKUDS/nanobot](https://github.com/HKUDS/nanobot) | 47,704 | MIT | 2026-09-04 | Ultra-lightweight, open-source, self-hosted personal AI agent framework in Python with WebUI, tools, memory, M |
-| [amruthpillai/reactive-resume](https://github.com/amruthpillai/reactive-resume) | 42,176 | MIT | 2026-09-04 | A one-of-a-kind resume builder that keeps your privacy in mind. Completely secure, customizable, portable, ope |
-| [DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) | 42,167 | MIT | 2026-09-04 | High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average r |
-| [bytedance/UI-TARS-desktop](https://github.com/bytedance/UI-TARS-desktop) | 38,838 | Apache-2.0 | 2026-08-05 | The Open-Source Multimodal AI Agent Stack: Connecting Cutting-Edge AI Models and Agent Infra |
-| [github/github-mcp-server](https://github.com/github/github-mcp-server) | 32,706 | MIT | 2026-09-03 | GitHub's official MCP Server |
+| [amruthpillai/reactive-resume](https://github.com/amruthpillai/reactive-resume) | 42,177 | MIT | 2026-09-04 | A one-of-a-kind resume builder that keeps your privacy in mind. Completely secure, customizable, portable, ope |
+| [DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) | 42,173 | MIT | 2026-09-04 | High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average r |
+| [bytedance/UI-TARS-desktop](https://github.com/bytedance/UI-TARS-desktop) | 38,840 | Apache-2.0 | 2026-08-05 | The Open-Source Multimodal AI Agent Stack: Connecting Cutting-Edge AI Models and Agent Infra |
+| [github/github-mcp-server](https://github.com/github/github-mcp-server) | 32,710 | MIT | 2026-09-03 | GitHub's official MCP Server |
 | [assafelovic/gpt-researcher](https://github.com/assafelovic/gpt-researcher) | 29,281 | Apache-2.0 | 2026-08-27 | An autonomous agent that conducts deep research on any data using any LLM providers |
-| [oraios/serena](https://github.com/oraios/serena) | 28,805 | MIT | 2026-09-04 | A powerful MCP toolkit for coding, providing semantic retrieval and editing capabilities - the IDE for your ag |
-| [PrefectHQ/fastmcp](https://github.com/PrefectHQ/fastmcp) | 27,517 | Apache-2.0 | 2026-09-03 | 🚀 The fast, Pythonic way to build MCP servers and clients. |
-| [ahujasid/blender-mcp](https://github.com/ahujasid/blender-mcp) | 26,799 | MIT | 2026-09-02 | Community plugin to control Blender 3D with any LLM of your choice |
-| [activepieces/activepieces](https://github.com/activepieces/activepieces) | 24,240 | non-standard | 2026-09-04 | AI Agents & MCPs & AI Workflow Automation • (~400 MCP servers for AI agents) • AI Automation / AI Agent with M |
-| [modelcontextprotocol/python-sdk](https://github.com/modelcontextprotocol/python-sdk) | 24,204 | MIT | 2026-09-03 | The official Python SDK for Model Context Protocol servers and clients |
+| [oraios/serena](https://github.com/oraios/serena) | 28,807 | MIT | 2026-09-04 | A powerful MCP toolkit for coding, providing semantic retrieval and editing capabilities - the IDE for your ag |
+| [PrefectHQ/fastmcp](https://github.com/PrefectHQ/fastmcp) | 27,519 | Apache-2.0 | 2026-09-03 | 🚀 The fast, Pythonic way to build MCP servers and clients. |
+| [ahujasid/blender-mcp](https://github.com/ahujasid/blender-mcp) | 26,806 | MIT | 2026-09-02 | Community plugin to control Blender 3D with any LLM of your choice |
+| [activepieces/activepieces](https://github.com/activepieces/activepieces) | 24,243 | non-standard | 2026-09-04 | AI Agents & MCPs & AI Workflow Automation • (~400 MCP servers for AI agents) • AI Automation / AI Agent with M |
+| [modelcontextprotocol/python-sdk](https://github.com/modelcontextprotocol/python-sdk) | 24,205 | MIT | 2026-09-03 | The official Python SDK for Model Context Protocol servers and clients |
 | [czlonkowski/n8n-mcp](https://github.com/czlonkowski/n8n-mcp) | 22,832 | MIT | 2026-09-03 | A MCP for Claude Desktop / Claude Code / Windsurf / Cursor to build n8n workflows for you |
-| [1Panel-dev/MaxKB](https://github.com/1Panel-dev/MaxKB) | 22,712 | GPL-3.0 | 2026-09-04 | 🔥 MaxKB is an open-source platform for building enterprise-grade agents. 强大易用的开源企业级智能体平台。 |
-| [mksglu/context-mode](https://github.com/mksglu/context-mode) | 20,344 | non-standard | 2026-09-03 | Context window optimization for AI coding agents. Sandboxes tool output (98% reduction), persists session memo |
-| [modelscope/FunASR](https://github.com/modelscope/FunASR) | 20,166 | MIT | 2026-09-04 | Open-source speech recognition toolkit for training, inference, streaming ASR, VAD, punctuation, speaker diari |
+| [1Panel-dev/MaxKB](https://github.com/1Panel-dev/MaxKB) | 22,713 | GPL-3.0 | 2026-09-04 | 🔥 MaxKB is an open-source platform for building enterprise-grade agents. 强大易用的开源企业级智能体平台。 |
+| [mksglu/context-mode](https://github.com/mksglu/context-mode) | 20,346 | non-standard | 2026-09-04 | Context window optimization for AI coding agents. Sandboxes tool output (98% reduction), persists session memo |
+| [modelscope/FunASR](https://github.com/modelscope/FunASR) | 20,167 | MIT | 2026-09-04 | Open-source speech recognition toolkit for training, inference, streaming ASR, VAD, punctuation, speaker diari |
 | [nukeop/nuclear](https://github.com/nukeop/nuclear) | 18,391 | AGPL-3.0 | 2026-09-04 | Streaming music player that finds free music for you |
 | [microsoft/mcp-for-beginners](https://github.com/microsoft/mcp-for-beginners) | 17,154 | MIT | 2026-09-03 | This open-source curriculum introduces the fundamentals of Model Context Protocol (MCP) through real-world, cr |
 
@@ -185,4 +185,4 @@ index, open an issue and it will be removed from the next run.
 
 ---
 
-_Regenerated automatically. Last run: 2026-09-04T11:49:30+00:00 · status: complete._
+_Regenerated automatically. Last run: 2026-09-04T12:42:59+00:00 · status: complete._
