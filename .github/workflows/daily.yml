@@ -2,9 +2,15 @@ name: daily census
 
 # 07:00 UTC — 09:00 in Berlin during CEST, 08:00 during CET. Cron has no
 # daylight-saving awareness; the contribution graph uses UTC days anyway.
+# Two slots, not one. GitHub's own documentation warns that the schedule event
+# is delayed under load, and the first scheduled run of this workflow never
+# fired at all. A daily obligation carried by a single cron slot is a daily
+# obligation you find out about after it has already been missed. The second
+# slot is a no-op on any day the first one worked.
 on:
   schedule:
     - cron: "0 7 * * *"
+    - cron: "0 12 * * *"
   workflow_dispatch:
 
 # The only permission this job needs. No personal access token exists anywhere
@@ -27,15 +33,29 @@ jobs:
       - name: Check out
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
+      - name: Has today's census already run?
+        id: guard
+        run: |
+          set -euo pipefail
+          if [ -f "data/daily/$(date -u +%F).json" ]; then
+            echo "done=true" >> "$GITHUB_OUTPUT"
+            echo "today's census is already committed; this run has nothing to do"
+          else
+            echo "done=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Collect
+        if: steps.guard.outputs.done != 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 collect.py
 
       - name: Render
+        if: steps.guard.outputs.done != 'true'
         run: python3 render.py
 
       - name: Commit
+        if: steps.guard.outputs.done != 'true'
         run: |
           set -euo pipefail
           git config user.name "Kerem Özdemir"
