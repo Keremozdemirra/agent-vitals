@@ -345,7 +345,12 @@ def main() -> int:
     prior_groups = (loaded.get("groups") if prior_path.exists() else None) or {}
     now_groups = {name: {"min_stars": floor, "queries": qs}
                   for name, floor, qs in GROUPS}
-    scope_changed = bool(prior_groups) and prior_groups != now_groups
+    # Gate on whether a previous census ran at all (bool(previous)), not on
+    # whether that census happened to record "groups" — a prior snapshot
+    # from before this field existed has no "groups" key, which would
+    # otherwise make prior_groups empty and silently suppress detection of
+    # a real scope change on the first run after such a schema migration.
+    scope_changed = bool(previous) and prior_groups != now_groups
     if scope_changed:
         print("scope changed since the last run; churn is not comparable",
               file=sys.stderr)
