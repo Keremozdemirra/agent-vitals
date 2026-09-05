@@ -432,7 +432,8 @@ def main() -> int:
             "days_since_push", "pushed_at", "created_at", "archived", "is_fork",
             "first_seen", "description"]
     with (DATA / "servers.csv").open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=cols, extrasaction="ignore")
+        writer = csv.DictWriter(handle, fieldnames=cols, extrasaction="ignore",
+                                lineterminator="\n")
         writer.writeheader()
         for rec in records:
             writer.writerow(rec)
@@ -463,7 +464,7 @@ def main() -> int:
     })
     rows.sort(key=lambda r: r["date"])
     with hist.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=hist_cols)
+        writer = csv.DictWriter(handle, fieldnames=hist_cols, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 

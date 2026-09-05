@@ -1,0 +1,16 @@
+# The consumer cross-checks its own totals against data/history.csv, so that
+# file has to be byte-stable for reasons beyond tidiness: anything that
+# rewrites it turns the cross-check into a comparison of one side's output
+# with itself. Python's csv module defaults to CRLF; the collector now pins
+# LF, and git is told to keep it that way whatever wrote the file last.
+data/history.csv text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.yml text eol=lf
+# data/servers.csv is deliberately not listed yet. Declaring it while HEAD
+# still holds CRLF makes every checkout look modified until the file is
+# renormalised, and renormalising a 36,000-line file is a full-file diff that
+# trips the local pre-push credential scanner on repository names. The
+# collector writes LF now; once a CI run has committed it that way, widen
+# this line to *.csv.

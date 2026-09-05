@@ -68,4 +68,17 @@ jobs:
           COUNT=$(python3 -c "import json,pathlib;d=json.loads(pathlib.Path('data/servers.json').read_text());print(d['count'])")
           NEW=$(python3 -c "import json,glob;f=sorted(glob.glob('data/daily/*.json'))[-1];print(json.load(open(f))['churn']['arrived_count'])")
           git commit -m "census $(date -u +%F): ${COUNT} repositories, +${NEW} new"
-          git push
+
+          # The 09:00 session commits to this same branch, so another commit can
+          # land between the checkout above and this push. Without a retry the
+          # push is simply rejected and the day's census is lost — a whole run
+          # thrown away over a race that costs one rebase to survive.
+          for attempt in 1 2 3; do
+            if git push; then
+              exit 0
+            fi
+            echo "push rejected (attempt ${attempt}); rebasing onto origin/main"
+            git pull --rebase --autostash origin main
+          done
+          echo "push still failing after three rebases" >&2
+          exit 1
