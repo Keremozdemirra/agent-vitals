@@ -33,3 +33,29 @@ and 7.8% (2,846) carry a licence GitHub cannot identify as a standard SPDX
 identifier; 29.1% of repositories old enough to qualify (created 365+ days
 ago) are abandoned.
 
+
+---
+
+## 2026-09-08
+
+No census ran today. The last scheduled run was 2026-09-07 17:32 UTC and
+neither the 07:00 nor the 12:00 UTC slot fired this morning, so the newest
+snapshot is still 2026-09-07; a `workflow_dispatch` run was triggered
+manually at 07:55 UTC to fill the gap. Against 2026-09-06, the 2026-09-07
+census added 372 repositories (36,908 to 37,280) on 407 arrivals and 35
+departures, with `churn.scope_changed` false — this is growth in the index,
+not a change in what is measured. The share carrying no licence file moved
+for the first time in the recorded window, from 16.7% to 17.1% (6,176 to
+6,389): 213 of the day's 372 net additions had no licence file, so more than
+half of yesterday's growth was repositories under default exclusive
+copyright. Abandonment among repositories old enough to qualify held at
+29.1% for the fourth consecutive day.
+
+`collect.py` fixed: `newly_archived` did not require a repository to have
+been in the previous index, so a repository first seen already archived was
+reported as having been archived that day. On 2026-09-05 that mislabelled 2
+of the 4 entries, and on 2026-09-04 at least 2 of 100. `newly_abandoned`
+was already correct — a missing prior status reads as `None` — but
+`archived` is a boolean whose `.get` default is indistinguishable from a
+real `False`, so the membership test had to be explicit. Past snapshots are
+not rewritten; the field is correct from the next run onward.

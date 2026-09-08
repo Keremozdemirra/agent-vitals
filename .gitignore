@@ -3,3 +3,9 @@ __pycache__/
 .DS_Store
 run.out
 run.err
+
+# collect.py reads GITHUB_TOKEN from the environment and writes it nowhere, but
+# this repository is public and one `.env` written by hand is all it would take.
+# The rule costs nothing and removes the possibility.
+.env
+.env.*

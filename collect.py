@@ -365,9 +365,17 @@ def main() -> int:
         if r["status"] == "abandoned"
         and previous.get(r["full_name"], {}).get("status") not in (None, "abandoned")
     )
+    # Both lists require the repository to have been in yesterday's index. A
+    # repository first seen today already archived did not become archived
+    # today; without the membership test it is reported as a same-day
+    # transition, which is the one thing this field claims to measure.
+    # newly_abandoned gets this for free because a missing prior status reads
+    # as None; archived is a boolean whose default is indistinguishable from
+    # a real False, so the test has to be explicit.
     newly_archived = sorted(
         r["full_name"] for r in records
-        if r["archived"] and not previous.get(r["full_name"], {}).get("archived", False)
+        if r["archived"] and r["full_name"] in previous
+        and not previous[r["full_name"]].get("archived", False)
     )
 
     snapshot = {
