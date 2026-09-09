@@ -76,3 +76,11 @@ file, against 213 of 372 on 2026-09-07, so the step from 16.7% to 17.1%
 recorded yesterday did not continue. Abandonment among repositories old enough
 to qualify moved to 29.0% from 29.1%, its first movement in the recorded
 window; 6 repositories crossed into `abandoned` and 3 were newly archived.
+
+The dispatched run completed at 09:54 UTC and wrote `data/daily/2026-09-09.json`
+with an empty `errors` list. Against 2026-09-08 it added 190 repositories net
+(37,378 to 37,568) on 223 arrivals and 33 departures, `churn.scope_changed`
+false. The share carrying no licence file held at 17.1% for the third
+consecutive day (6,395 to 6,412), and abandonment among repositories old enough
+to qualify held at 29.0% for the second. 14 repositories crossed into
+`abandoned`, against 6 the day before, and 3 were newly archived.
