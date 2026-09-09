@@ -59,3 +59,20 @@ was already correct — a missing prior status reads as `None` — but
 `archived` is a boolean whose `.get` default is indistinguishable from a
 real `False`, so the membership test had to be explicit. Past snapshots are
 not rewritten; the field is correct from the next run onward.
+
+---
+
+## 2026-09-09
+
+No census had run by 08:51 UTC. The last snapshot is 2026-09-08, written by
+yesterday's manually dispatched run; the 07:00 UTC slot failed to fire for the
+second consecutive day, and a `workflow_dispatch` run was triggered at 08:51
+UTC to fill today's gap. Against 2026-09-07, the 2026-09-08 census added 98
+repositories net (37,280 to 37,378) on 123 arrivals and 25 departures, with
+`churn.scope_changed` false — the smallest daily net addition in the five days
+recorded so far, after +372 the day before. The share carrying no licence file
+held at 17.1% (6,389 to 6,395): 6 of the day's 98 net additions had no licence
+file, against 213 of 372 on 2026-09-07, so the step from 16.7% to 17.1%
+recorded yesterday did not continue. Abandonment among repositories old enough
+to qualify moved to 29.0% from 29.1%, its first movement in the recorded
+window; 6 repositories crossed into `abandoned` and 3 were newly archived.
