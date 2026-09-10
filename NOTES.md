@@ -84,3 +84,22 @@ false. The share carrying no licence file held at 17.1% for the third
 consecutive day (6,395 to 6,412), and abandonment among repositories old enough
 to qualify held at 29.0% for the second. 14 repositories crossed into
 `abandoned`, against 6 the day before, and 3 were newly archived.
+
+---
+
+## 2026-09-10
+
+No snapshot existed at 08:05 UTC and a `workflow_dispatch` run was triggered
+then; it is still collecting at the time of writing. The 2026-09-08 and
+2026-09-09 entries above record that the 07:00 UTC slot "failed to fire", and
+the run history contradicts that: every day since 2026-09-05 has produced
+exactly two scheduled runs, and both arrive hours after their nominal slot.
+The first run of each day started at 11:09, 11:32, 13:19, 12:00 and 12:11 UTC
+on 09-05 through 09-09, against a `0 7 * * *` cron, and the second at 14:50,
+15:10, 17:32, 16:17 and 16:12 against `0 12 * * *`. The 2026-09-06 and
+2026-09-07 snapshots were written by those delayed scheduled runs
+(`generated_at` 12:29 and 14:19 UTC), so the schedule does deliver the census
+unassisted; on the other three days a manual dispatch at around 08:00 UTC got
+there first and the guard step turned the delayed run into a no-op. The
+mechanism is delay of four to six hours, not a dropped slot, which matches
+GitHub's documented behaviour for schedules on the hour under load.
