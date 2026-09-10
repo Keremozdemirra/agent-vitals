@@ -405,8 +405,14 @@ def main() -> int:
             "arrived_count": len(arrivals),
             "left_the_index": departures[:200],
             "left_count": len(departures),
+            # Both lists are capped, and both carry their own count for the
+            # same reason arrived/left do: a reader who counts the list is
+            # right until the day the cap bites, and then silently wrong with
+            # no way to tell. 2026-09-04 already produced 100 newly_archived.
             "newly_abandoned": newly_abandoned[:100],
+            "newly_abandoned_count": len(newly_abandoned),
             "newly_archived": newly_archived[:100],
+            "newly_archived_count": len(newly_archived),
             "first_run": not previous,
             "scope_changed": scope_changed,
             "previous_scope": {k: v.get("min_stars") for k, v in prior_groups.items()},
