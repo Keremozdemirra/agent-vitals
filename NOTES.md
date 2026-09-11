@@ -103,3 +103,26 @@ unassisted; on the other three days a manual dispatch at around 08:00 UTC got
 there first and the guard step turned the delayed run into a no-op. The
 mechanism is delay of four to six hours, not a dropped slot, which matches
 GitHub's documented behaviour for schedules on the hour under load.
+
+---
+
+## 2026-09-11
+
+No snapshot existed at 11:11 UTC and no scheduled run had started (the last
+run of any kind was the 16:04 UTC no-op on 2026-09-10), so a
+`workflow_dispatch` was triggered at 11:12 UTC; it is collecting at the time
+of writing. This is a longer delay than the four-to-six-hour range recorded
+yesterday, which makes 2026-09-11 the first day since 2026-09-05 with no
+scheduled run by late morning UTC.
+
+The 2026-09-10 snapshot (the newest available) is `complete` with an empty
+`errors` list: 37,750 repositories, up 182 net on 219 arrivals and 37
+departures, `churn.scope_changed` false. The share with no licence file
+slipped from 17.1% to 17.0% (6,412 to 6,423 on a larger base) after three
+days flat; abandonment among eligible repositories held at 29.1%. 13
+repositories crossed into `abandoned` and 5 were newly archived. 11 of the 37
+departures are matched by an arrival with the same repository name under a
+different owner (for example `theagenticguy/erpaval` to
+`laithalsaadoon/erpaval`, `kpavlov/tachyon` to `tachyonmcp/tachyon`): those
+are renames or transfers, not exits, so real turnover that day was closer to
+26 out and 208 in.
