@@ -32,6 +32,15 @@ jobs:
     steps:
       - name: Check out
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          # Without this the checkout is the commit main pointed at when the
+          # run was *created*, not when it *started*. A scheduled run that
+          # queues behind a dispatch (the concurrency group above) then
+          # inspects a tree from before that dispatch committed, the guard
+          # below finds no snapshot, and an hour of collection ends in a
+          # rebase conflict. Seen 2026-09-11: created 12:03, started 12:17,
+          # seven seconds after the dispatch had pushed the day's census.
+          ref: main
 
       - name: Has today's census already run?
         id: guard

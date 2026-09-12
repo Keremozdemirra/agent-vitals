@@ -126,3 +126,30 @@ different owner (for example `theagenticguy/erpaval` to
 `laithalsaadoon/erpaval`, `kpavlov/tachyon` to `tachyonmcp/tachyon`): those
 are renames or transfers, not exits, so real turnover that day was closer to
 26 out and 208 in.
+
+## 2026-09-12
+
+No snapshot existed at 07:01 UTC and no run of any kind had started, so a
+`workflow_dispatch` was triggered; it is collecting at the time of writing.
+The 07:00 slot has not fired on time on any day since 2026-09-08.
+
+Yesterday's 12:03 UTC scheduled run failed, and the failure is a defect in
+the workflow rather than in the collector. The run was created at 12:03
+while the 11:11 dispatch was still collecting, waited in the concurrency
+group, and started at 12:17:13, seven seconds after the dispatch had pushed
+the day's census. `actions/checkout` defaults to the commit the run was
+created for, so the guard step inspected a tree from before that push,
+found no snapshot, collected for an hour, and lost the result to a rebase
+conflict on six files. Checkout now pins `ref: main`, so a queued run reads
+the branch as it is when the run starts. The dispatch's snapshot is the one
+in the dataset; nothing was lost.
+
+The 2026-09-11 snapshot is `complete` with an empty `errors` list: 37,950
+repositories, up 200 net on 242 arrivals and 42 departures,
+`churn.scope_changed` false. Both figures are the highest since the
+2026-09-07 scope-driven spike; the 7-day mean is 236 in and 34 out. The
+share with no licence file held at 17.0% (6,454), abandonment among
+eligible repositories at 29.1%. 12 repositories crossed into `abandoned`
+and 5 were newly archived. 8 of the 42 departures reappear as an arrival
+with the same repository name under a different owner, so real turnover was
+closer to 34 out and 234 in.
