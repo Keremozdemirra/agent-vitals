@@ -179,3 +179,12 @@ it: `reactive-resume/reactive-resume` (42,666 stars, MIT, created
 and `drawdb-io/drawdb` (39,507 stars, AGPL-3.0, created 2023-07-16), which
 is new to the index. Neither is a new project; the star total moved because
 the scope's topic queries picked them up, not because the ecosystem grew.
+
+Addendum, 08:16 UTC: the dispatch finished and the 2026-09-14 snapshot
+is `complete` with an empty `errors` list: 38,414 repositories, up 155
+net on 175 arrivals and 20 departures, `churn.scope_changed` false. Both
+are below the 7-day mean of 224 in and 34 out; 20 out is the lowest
+since 2026-09-08. The share with no licence file held at 17.0% (6,538),
+abandonment among eligible repositories at 29.1%. 9 repositories crossed
+into `abandoned`, none were newly archived. Total stars rose 43,021, back
+on the ordinary daily rate after yesterday's two-repository jump.
