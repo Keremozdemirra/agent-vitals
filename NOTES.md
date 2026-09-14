@@ -153,3 +153,29 @@ eligible repositories at 29.1%. 12 repositories crossed into `abandoned`
 and 5 were newly archived. 8 of the 42 departures reappear as an arrival
 with the same repository name under a different owner, so real turnover was
 closer to 34 out and 234 in.
+
+## 2026-09-14
+
+No snapshot existed at 07:16 UTC and no run had started, so a
+`workflow_dispatch` was triggered; it is collecting at the time of writing.
+The 07:00 slot did not fire on 2026-09-13 either: that day's census came
+from the 12:00 slot (run started 12:34 UTC, snapshot generated 13:37). The
+07:00 slot has not fired on time on any day since 2026-09-08.
+
+The 2026-09-13 snapshot is `complete` with an empty `errors` list: 38,259
+repositories, up 192 net on 230 arrivals and 38 departures,
+`churn.scope_changed` false. Both figures sit on the 7-day mean of 228 in
+and 35 out. The share with no licence file held at 17.0% (6,502),
+abandonment among eligible repositories at 29.0%. 9 repositories crossed
+into `abandoned` and 9 were newly archived, five of the latter under one
+owner. 8 of the 38 departures reappear as an arrival with the same
+repository name under a different owner or casing, so real turnover was
+closer to 30 out and 222 in.
+
+Total stars rose 118,138 to 18,792,783, the largest one-day rise in the
+series against a 7-day mean of about 64,000. Two arrivals explain most of
+it: `reactive-resume/reactive-resume` (42,666 stars, MIT, created
+2020-03-25), which is the departed `reactive-resume/app` under a new name,
+and `drawdb-io/drawdb` (39,507 stars, AGPL-3.0, created 2023-07-16), which
+is new to the index. Neither is a new project; the star total moved because
+the scope's topic queries picked them up, not because the ecosystem grew.
