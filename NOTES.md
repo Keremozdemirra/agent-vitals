@@ -188,3 +188,26 @@ since 2026-09-08. The share with no licence file held at 17.0% (6,538),
 abandonment among eligible repositories at 29.1%. 9 repositories crossed
 into `abandoned`, none were newly archived. Total stars rose 43,021, back
 on the ordinary daily rate after yesterday's two-repository jump.
+
+## 2026-09-21
+
+No snapshot existed at 07:02 UTC and no run had started, so a
+`workflow_dispatch` was triggered; it is collecting at the time of writing.
+The 07:00 slot has still not fired on any day: every census from 2026-09-15
+to 2026-09-20 came from the 12:00 slot, starting between 11:49 and 12:28
+UTC, and the second scheduled run of each day landed at 15:37 to 16:33 UTC
+and exited on the guard. No note was written for 2026-09-15 through
+2026-09-20; those six snapshots exist and are `complete` with empty
+`errors` lists.
+
+The 2026-09-20 snapshot is `complete` with an empty `errors` list: 39,418
+repositories, up 161 net on 191 arrivals and 30 departures,
+`churn.scope_changed` false. Both figures are below the 7-day mean of 213
+in and 43 out. The share with no licence file fell to 16.8% (6,637), the
+first reading below 16.9% in the series; abandonment among eligible
+repositories held at 29.2%. 8 repositories crossed into `abandoned` and 4
+were newly archived, three of the latter under one owner. 11 of the 30
+departures reappear as an arrival with the same repository name under a
+different owner or casing. Total stars rose 64,664 to 19,264,153; the
+largest arrival is `tonhowtf/omniget` (13,988 stars, GPL-3.0, created
+2026-02-11), which is new to the index rather than new to GitHub.
