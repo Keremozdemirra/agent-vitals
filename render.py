@@ -8,6 +8,7 @@ here, at the boundary. Repository descriptions are attacker-controlled text.
 from __future__ import annotations
 
 import datetime as dt
+import csv
 import html
 import json
 from pathlib import Path
@@ -53,6 +54,33 @@ def top(records: list[dict], n: int, **filters) -> list[dict]:
     out = [r for r in records if all(r.get(k) == v for k, v in filters.items())]
     out.sort(key=lambda r: -r["stars"])
     return out[:n]
+
+
+# Licences under which a stranger may take the code on and ship it. Anything
+# else (copyleft, non-standard, none) stays out of the two candidate lists,
+# because the lists exist to be acted on.
+PERMISSIVE = {"MIT", "Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "ISC", "CC0-1.0", "MPL-2.0", "Unlicense", "0BSD"}
+
+
+def candidates(records: list[dict]) -> tuple[list[dict], list[dict]]:
+    """Two lists a person could act on, from fields the census already holds.
+
+    revive:     no push in over a year, or archived, yet 200+ stars, a permissive
+                licence and at least five open issues: people still arrive and
+                nobody answers. Forkable as they stand.
+    contribute: pushed in the last 30 days, 1,000+ stars, permissive, and at
+                least thirty open issues: maintained, wanted, and short of hands.
+    Both are statements about dates, stars and licence fields, never about the
+    quality of anyone's work.
+    """
+    ok = lambda r: r.get("license") in PERMISSIVE and not r.get("is_fork")
+    revive = [r for r in records if ok(r) and r["status"] in ("abandoned", "archived")
+              and r["stars"] >= 200 and (r.get("open_issues") or 0) >= 5]
+    revive.sort(key=lambda r: -r["stars"])
+    contribute = [r for r in records if ok(r) and r["status"] == "active"
+                  and r["stars"] >= 1000 and (r.get("open_issues") or 0) >= 30]
+    contribute.sort(key=lambda r: -(r.get("open_issues") or 0))
+    return revive[:20], contribute[:20]
 
 
 def render_readme(index: dict, today: dict, history: list[dict]) -> str:
@@ -154,6 +182,37 @@ def render_readme(index: dict, today: dict, history: list[dict]) -> str:
     if not dead:
         lines.append("| _none in this run_ | | | |")
 
+    revive, contribute = candidates(recs)
+    lines += [
+        "",
+        "### Quiet, permissive, still asked about",
+        "",
+        "No push in over a year, or archived, yet 200 or more stars, a permissive licence and",
+        "five or more open issues. People still arrive; nobody answers. Each is forkable as it",
+        "stands. A date, a star count and a licence field, never a verdict on the work.",
+        "",
+        "| Repository | Stars | Open issues | Licence | Last push |",
+        "| --- | ---: | ---: | --- | --- |",
+    ]
+    for r in revive:
+        lines.append(f"| [{md(r['full_name'])}]({r['url']}) | {r['stars']:,} | {r.get('open_issues') or 0:,} | {md(r['license'])} | {r['pushed_at']} |")
+    if not revive:
+        lines.append("| _none in this run_ | | | | |")
+    lines += [
+        "",
+        "### Busy, permissive, with open work",
+        "",
+        "Pushed in the last 30 days, 1,000 or more stars, a permissive licence and thirty or more",
+        "open issues: maintained, wanted, and short of hands. Ranked by open issues.",
+        "",
+        "| Repository | Open issues | Stars | Licence | Last push |",
+        "| --- | ---: | ---: | --- | --- |",
+    ]
+    for r in contribute:
+        lines.append(f"| [{md(r['full_name'])}]({r['url']}) | {r.get('open_issues') or 0:,} | {r['stars']:,} | {md(r['license'])} | {r['pushed_at']} |")
+    if not contribute:
+        lines.append("| _none in this run_ | | | | |")
+
     if len(history) > 1:
         lines += ["", "### Trend", "",
                   "| Date | Repositories | Active | Abandoned | No licence file | New |",
@@ -178,6 +237,7 @@ def render_readme(index: dict, today: dict, history: list[dict]) -> str:
         "| `data/servers.csv` | The same index, flat, for spreadsheets and `pandas.read_csv`. |",
         "| `data/history.csv` | One row per day: totals per status, licence counts, churn. |",
         "| `data/daily/YYYY-MM-DD.json` | That day's snapshot, including which repositories arrived and which went quiet. |",
+        "| `data/candidates.csv` | The two acted-on lists from the report: `revive` (quiet, permissive, still asked about) and `contribute` (busy, permissive, with open work). |",
         "",
         "Everything is committed, so `git log data/history.csv` is the changelog of the",
         "ecosystem itself.",
@@ -288,6 +348,18 @@ def render_html(index: dict, today: dict, history: list[dict]) -> str:
         )
         spark = f'<svg viewBox="0 0 300 44" class="spark"><polyline points="{coords}"/></svg>'
 
+    def trows(rs, first):
+        out = []
+        for r in rs:
+            a = f"<td><a href='{html.escape(r['url'])}'>{html.escape(r['full_name'])}</a></td>"
+            b = f"<td class='n'>{r['stars']:,}</td><td class='n'>{r.get('open_issues') or 0:,}</td>"
+            if first == "issues":
+                b = f"<td class='n'>{r.get('open_issues') or 0:,}</td><td class='n'>{r['stars']:,}</td>"
+            out.append(f"<tr>{a}{b}<td>{html.escape(r['license'] or '')}</td><td>{html.escape(r['pushed_at'])}</td></tr>")
+        return "".join(out) or "<tr><td colspan='5'>none in this run</td></tr>"
+    revive, contribute = candidates(recs)
+    revive_rows = trows(revive, "stars")
+    contribute_rows = trows(contribute, "issues")
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -335,6 +407,12 @@ footer{{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--line);colo
 {('<h2>Index size, last 30 runs</h2>' + spark) if spark else ''}
 <h2>Most-starred, still maintained</h2>
 <div class="wrap"><table><thead><tr><th>Repository</th><th class="n">Stars</th><th>Licence</th><th>Last push</th><th>Description</th></tr></thead><tbody>{rows}</tbody></table></div>
+<h2>Quiet, permissive, still asked about</h2>
+<p class="sub">No push in over a year, or archived; 200+ stars, permissive licence, 5+ open issues. Forkable as they stand. Dates and licence fields, never a verdict.</p>
+<div class="wrap"><table><thead><tr><th>Repository</th><th class="n">Stars</th><th class="n">Open issues</th><th>Licence</th><th>Last push</th></tr></thead><tbody>{revive_rows}</tbody></table></div>
+<h2>Busy, permissive, with open work</h2>
+<p class="sub">Pushed in 30 days; 1,000+ stars, permissive licence, 30+ open issues. Ranked by open issues.</p>
+<div class="wrap"><table><thead><tr><th>Repository</th><th class="n">Open issues</th><th class="n">Stars</th><th>Licence</th><th>Last push</th></tr></thead><tbody>{contribute_rows}</tbody></table></div>
 <footer>
 Source: GitHub REST API, public metadata only — nothing cloned, downloaded or executed.
 <code>status</code> is derived from <code>pushed_at</code>: it measures activity, not quality or safety.
@@ -351,6 +429,13 @@ def main() -> int:
     (ROOT / "README.md").write_text(render_readme(index, today, history))
     (ROOT / "docs").mkdir(exist_ok=True)
     (ROOT / "docs" / "index.html").write_text(render_html(index, today, history))
+    revive, contribute = candidates(index["repositories"])
+    with (ROOT / "data" / "candidates.csv").open("w", newline="") as fh:
+        w = csv.writer(fh)
+        w.writerow(["kind", "repository", "stars", "open_issues", "license", "status", "pushed_at", "url"])
+        for kind, rows in (("revive", revive), ("contribute", contribute)):
+            for r in rows:
+                w.writerow([kind, r["full_name"], r["stars"], r.get("open_issues") or 0, r["license"], r["status"], r["pushed_at"], r["url"]])
     print(f"rendered README.md and docs/index.html for {today['date']}")
     return 0
 

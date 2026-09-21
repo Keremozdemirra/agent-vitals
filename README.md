@@ -109,6 +109,63 @@ curated lists long after anyone stopped answering issues.
 | [gyoridavid/short-video-maker](https://github.com/gyoridavid/short-video-maker) | 1,360 | 2025-06-21 | 456 |
 | [browserable/browserable](https://github.com/browserable/browserable) | 1,208 | 2025-08-27 | 389 |
 
+### Quiet, permissive, still asked about
+
+No push in over a year, or archived, yet 200 or more stars, a permissive licence and
+five or more open issues. People still arrive; nobody answers. Each is forkable as it
+stands. A date, a star count and a licence field, never a verdict on the work.
+
+| Repository | Stars | Open issues | Licence | Last push |
+| --- | ---: | ---: | --- | --- |
+| [TransformerOptimus/SuperAGI](https://github.com/TransformerOptimus/SuperAGI) | 17,686 | 263 | MIT | 2025-01-22 |
+| [bytebot-ai/bytebot](https://github.com/bytebot-ai/bytebot) | 11,084 | 72 | Apache-2.0 | 2025-09-12 |
+| [RayVentura/ShortGPT](https://github.com/RayVentura/ShortGPT) | 7,963 | 86 | MIT | 2025-02-10 |
+| [BrowserMCP/mcp](https://github.com/BrowserMCP/mcp) | 7,116 | 150 | Apache-2.0 | 2025-04-24 |
+| [airweave-ai/airweave](https://github.com/airweave-ai/airweave) | 6,562 | 105 | MIT | 2026-06-05 |
+| [lharries/whatsapp-mcp](https://github.com/lharries/whatsapp-mcp) | 6,290 | 245 | MIT | 2025-07-13 |
+| [microsoft/TaskWeaver](https://github.com/microsoft/TaskWeaver) | 6,170 | 53 | MIT | 2026-03-23 |
+| [aiwaves-cn/agents](https://github.com/aiwaves-cn/agents) | 5,964 | 50 | Apache-2.0 | 2024-09-26 |
+| [SolaceLabs/solace-agent-mesh](https://github.com/SolaceLabs/solace-agent-mesh) | 4,924 | 99 | Apache-2.0 | 2026-09-13 |
+| [abhi1693/openclaw-mission-control](https://github.com/abhi1693/openclaw-mission-control) | 4,108 | 85 | MIT | 2026-08-06 |
+| [browserbase/mcp-server-browserbase](https://github.com/browserbase/mcp-server-browserbase) | 3,412 | 52 | Apache-2.0 | 2026-07-20 |
+| [BAAI-Agents/Cradle](https://github.com/BAAI-Agents/Cradle) | 2,583 | 23 | MIT | 2024-11-07 |
+| [lmnr-ai/index](https://github.com/lmnr-ai/index) | 2,443 | 6 | Apache-2.0 | 2025-06-09 |
+| [dot-agent/nextpy](https://github.com/dot-agent/nextpy) | 2,348 | 23 | Apache-2.0 | 2024-05-01 |
+| [Mintplex-Labs/vector-admin](https://github.com/Mintplex-Labs/vector-admin) | 2,242 | 43 | MIT | 2025-04-15 |
+| [cjo4m06/mcp-shrimp-task-manager](https://github.com/cjo4m06/mcp-shrimp-task-manager) | 2,153 | 46 | MIT | 2025-08-21 |
+| [chatmcp/mcpso](https://github.com/chatmcp/mcpso) | 2,108 | 3,139 | Apache-2.0 | 2025-03-26 |
+| [SqueezeAILab/LLMCompiler](https://github.com/SqueezeAILab/LLMCompiler) | 1,885 | 7 | MIT | 2024-07-10 |
+| [zhu1090093659/deepseek-pp](https://github.com/zhu1090093659/deepseek-pp) | 1,872 | 30 | Apache-2.0 | 2026-08-13 |
+| [jina-ai/langchain-serve](https://github.com/jina-ai/langchain-serve) | 1,638 | 15 | Apache-2.0 | 2023-09-20 |
+
+### Busy, permissive, with open work
+
+Pushed in the last 30 days, 1,000 or more stars, a permissive licence and thirty or more
+open issues: maintained, wanted, and short of hands. Ranked by open issues.
+
+| Repository | Open issues | Stars | Licence | Last push |
+| --- | ---: | ---: | --- | --- |
+| [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | 43,459 | 247,342 | MIT | 2026-09-20 |
+| [stablyai/orca](https://github.com/stablyai/orca) | 6,299 | 73,176 | MIT | 2026-09-20 |
+| [Osmantic/ODS](https://github.com/Osmantic/ODS) | 3,341 | 6,613 | Apache-2.0 | 2026-09-20 |
+| [can1357/oh-my-pi](https://github.com/can1357/oh-my-pi) | 2,924 | 32,066 | MIT | 2026-09-20 |
+| [farion1231/cc-switch](https://github.com/farion1231/cc-switch) | 2,796 | 133,795 | MIT | 2026-09-20 |
+| [agentuniverse-ai/agentUniverse](https://github.com/agentuniverse-ai/agentUniverse) | 2,487 | 2,358 | Apache-2.0 | 2026-09-14 |
+| [punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) | 2,340 | 95,319 | MIT | 2026-09-15 |
+| [decolua/9router](https://github.com/decolua/9router) | 2,177 | 29,419 | MIT | 2026-09-18 |
+| [esengine/DeepSeek-Reasonix](https://github.com/esengine/DeepSeek-Reasonix) | 1,967 | 35,644 | MIT | 2026-09-20 |
+| [kirodotdev/KiroCrew](https://github.com/kirodotdev/KiroCrew) | 1,900 | 4,046 | Apache-2.0 | 2026-09-20 |
+| [rtk-ai/rtk](https://github.com/rtk-ai/rtk) | 1,578 | 81,089 | Apache-2.0 | 2026-09-19 |
+| [agno-agi/agno](https://github.com/agno-agi/agno) | 1,553 | 42,265 | Apache-2.0 | 2026-09-18 |
+| [t8y2/dbx](https://github.com/t8y2/dbx) | 1,551 | 20,184 | Apache-2.0 | 2026-09-20 |
+| [QwenLM/qwen-code](https://github.com/QwenLM/qwen-code) | 1,503 | 28,007 | Apache-2.0 | 2026-09-20 |
+| [infiniflow/ragflow](https://github.com/infiniflow/ragflow) | 1,461 | 91,043 | Apache-2.0 | 2026-09-20 |
+| [makecindy/cindy](https://github.com/makecindy/cindy) | 1,435 | 2,769 | Apache-2.0 | 2026-09-20 |
+| [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | 1,432 | 119,769 | Apache-2.0 | 2026-09-18 |
+| [omnigent-ai/omnigent](https://github.com/omnigent-ai/omnigent) | 1,394 | 10,113 | Apache-2.0 | 2026-09-20 |
+| [aden-hive/hive](https://github.com/aden-hive/hive) | 1,357 | 11,058 | Apache-2.0 | 2026-09-14 |
+| [aws/amazon-q-developer-cli](https://github.com/aws/amazon-q-developer-cli) | 1,331 | 1,984 | Apache-2.0 | 2026-08-24 |
+
 ### Trend
 
 | Date | Repositories | Active | Abandoned | No licence file | New |
@@ -140,6 +197,7 @@ curl -sL https://raw.githubusercontent.com/Keremozdemirra/agent-vitals/main/data
 | `data/servers.csv` | The same index, flat, for spreadsheets and `pandas.read_csv`. |
 | `data/history.csv` | One row per day: totals per status, licence counts, churn. |
 | `data/daily/YYYY-MM-DD.json` | That day's snapshot, including which repositories arrived and which went quiet. |
+| `data/candidates.csv` | The two acted-on lists from the report: `revive` (quiet, permissive, still asked about) and `contribute` (busy, permissive, with open work). |
 
 Everything is committed, so `git log data/history.csv` is the changelog of the
 ecosystem itself.
