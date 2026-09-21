@@ -7,10 +7,14 @@ name: daily census
 # fired at all. A daily obligation carried by a single cron slot is a daily
 # obligation you find out about after it has already been missed. The second
 # slot is a no-op on any day the first one worked.
+# Moved off the top of the hour on 2026-09-21: over the previous nine days the
+# 07:00 slot landed between 15:15 and 17:54 UTC and the 12:00 slot up to 2.5 h
+# late, so the 09:00 Berlin reader never had a fresh snapshot. Off-peak minutes
+# are what GitHub's own guidance suggests against the delay.
 on:
   schedule:
-    - cron: "0 7 * * *"
-    - cron: "0 12 * * *"
+    - cron: "23 3 * * *"
+    - cron: "23 9 * * *"
   workflow_dispatch:
 
 # The only permission this job needs. No personal access token exists anywhere
