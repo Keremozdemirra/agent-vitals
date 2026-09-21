@@ -417,7 +417,7 @@ footer{{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--line);colo
 Source: GitHub REST API, public metadata only — nothing cloned, downloaded or executed.
 <code>status</code> is derived from <code>pushed_at</code>: it measures activity, not quality or safety.
 Compilation CC0 · code MIT · each description belongs to its author and links to its source ·
-<a href="https://github.com/Keremozdemirra/agent-vitals">repository</a>.
+<a href="https://github.com/Keremozdemirra/agent-vitals">repository</a> · by <a href="https://keremozdemir.de/">Kerem Özdemir</a>.
 Generated {html.escape(today['generated_at'])}.
 </footer>
 </main></body></html>
