@@ -185,6 +185,21 @@ open issues: maintained, wanted, and short of hands. Ranked by open issues.
 | 2026-09-20 | 39,418 | 18,564 | 2,362 | 6,637 | +191 |
 | 2026-09-21 | 39,627 | 18,641 | 2,370 | 6,643 | +251 |
 
+## Ask it from an agent
+
+The census is an MCP server too, standard library only, four tools: `lookup` a
+repository's status and licence, `search` by words with status and licence
+filters, `summary` of the latest run, and the two `candidates` lists.
+
+```bash
+git clone https://github.com/Keremozdemirra/agent-vitals && cd agent-vitals
+claude mcp add agent-vitals -- python3 "$PWD/mcp_server.py"
+```
+
+`AGENT_VITALS_REMOTE=1` reads the published index instead of the checkout, so
+the clone can stay old. Nothing is written or executed; it answers from
+`data/servers.json`.
+
 ## Use the data
 
 ```bash
