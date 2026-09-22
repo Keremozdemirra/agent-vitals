@@ -211,3 +211,31 @@ departures reappear as an arrival with the same repository name under a
 different owner or casing. Total stars rose 64,664 to 19,264,153; the
 largest arrival is `tonhowtf/omniget` (13,988 stars, GPL-3.0, created
 2026-02-11), which is new to the index rather than new to GitHub.
+
+## 2026-09-22
+
+No snapshot existed at 07:56 UTC and no run had started: the new 03:23
+slot (moved off the top of the hour in 078fbb3 on 2026-09-21) did not fire
+on its first day, so a `workflow_dispatch` was triggered at 07:56 UTC and
+is collecting at the time of writing. Yesterday's dispatch at 07:02 UTC
+failed at 08:05 UTC in the push step: the push was rejected because
+096744e and 078fbb3 had landed on `main` during collection, and the retry
+rebase stopped on a content conflict in `docs/index.html`, a rendered
+file that both sides had changed. The day was saved by the scheduled run
+created at 15:56 UTC, which found no snapshot and collected. The push
+retry rebases but cannot resolve a conflict in rendered output; re-running
+`render.py` after the rebase stops would. Not changed here.
+
+The 2026-09-21 snapshot is `complete` with an empty `errors` list: 39,627
+repositories, up 209 net on 251 arrivals and 42 departures,
+`churn.scope_changed` false. Arrivals are the highest since 2026-09-15
+(289) and above the 7-day mean of 218; departures sit close to the 7-day mean
+of 45. The share with no licence file held at 16.8% (6,643), licences GitHub
+cannot identify at 7.8% (3,081), abandonment among eligible repositories
+at 29.2%. 7 repositories crossed into `abandoned` and 2 were newly
+archived. 6 of the 42 departures reappear as an arrival with the same
+repository name under a different owner or casing. Total stars rose 78,291
+to 19,342,444; the largest arrival is `TykTechnologies/tyk` (10,826 stars,
+created 2014-05-07, `license_state` non-standard), new to the index rather
+than new to GitHub, followed by `bostrot/wslmanager` (4,005, non-standard)
+and `miqdadbadjuber/anti-slop` (3,438, MIT, created 2026-08-07).
