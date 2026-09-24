@@ -269,8 +269,9 @@ def resolve(s: dict) -> dict:
 # ---------------------------------------------------------------- facts
 
 class Net:
-    def __init__(self, offline: bool, token: str | None):
-        self.offline, self.token = offline, token
+    def __init__(self, offline: bool, token: str | None, timeout: float = 20, census: bool = True):
+        self.offline, self.token, self.timeout = offline, token, timeout
+        self.use_census = census  # off in the hook: the published index is 26 MB, too slow to wait on
         self.cache: dict[str, object] = {}
         self.github_down = False
         self.census: dict | None = None
@@ -280,7 +281,7 @@ class Net:
             return self.cache[url]
         req = urllib.request.Request(url, headers={"User-Agent": UA, **(headers or {})})
         try:
-            with urllib.request.urlopen(req, timeout=20) as resp:
+            with urllib.request.urlopen(req, timeout=self.timeout) as resp:
                 val = json.load(resp)
         except urllib.error.HTTPError as e:
             val = {"_error": e.code}
@@ -334,6 +335,8 @@ class Net:
         return self.from_census(repo)
 
     def from_census(self, repo: str) -> dict:
+        if not self.use_census:
+            return {"error": "GitHub API unavailable"}
         if self.census is None:
             local = HERE / "data" / "servers.json"
             try:

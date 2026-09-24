@@ -3,7 +3,7 @@ name: test
 # doctor.py and the MCP server, against fixtures. No network, no token.
 on:
   push:
-    paths: ["doctor.py", "mcp_server.py", "tests/**", "pyproject.toml", ".github/workflows/test.yml"]
+    paths: ["doctor.py", "hook.py", "mcp_server.py", "tests/**", "pyproject.toml", ".github/workflows/test.yml"]
   pull_request:
 
 permissions:

@@ -30,6 +30,7 @@ Issues = "https://github.com/Keremozdemirra/agent-vitals/issues"
 [project.scripts]
 mcp-vitals = "doctor:main"
 mcp-vitals-server = "mcp_server:main"
+mcp-vitals-hook = "hook:main"
 
 [tool.setuptools]
-py-modules = ["doctor", "mcp_server"]
+py-modules = ["doctor", "mcp_server", "hook"]
