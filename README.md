@@ -15,18 +15,18 @@ GitHub metadata, and keeps the answers as a time series:
 ## Check your own setup
 
 The same questions, asked of the MCP servers you actually run:
-[mcp-vitals](https://github.com/Keremozdemirra/mcp-vitals) reads your client configs
+[mcp-upkeep](https://github.com/Keremozdemirra/mcp-upkeep) reads your client configs
 and reports, for each server, when its repository was last pushed, whether it is
 archived or deprecated, what licence it carries and whether it is pinned. As a
 Claude Code plugin it asks before Claude adds a server that is archived, abandoned,
 deprecated or unlicensed.
 
 ```
-/plugin marketplace add Keremozdemirra/mcp-vitals
-/plugin install mcp-vitals@mcp-vitals
+/plugin marketplace add Keremozdemirra/mcp-upkeep
+/plugin install mcp-upkeep@mcp-upkeep
 ```
 
-or, from a terminal, `uvx mcp-vitals`.
+or, from a terminal, `uvx mcp-upkeep`.
 
 ## 2026-09-24
 
