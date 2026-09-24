@@ -239,3 +239,23 @@ to 19,342,444; the largest arrival is `TykTechnologies/tyk` (10,826 stars,
 created 2014-05-07, `license_state` non-standard), new to the index rather
 than new to GitHub, followed by `bostrot/wslmanager` (4,005, non-standard)
 and `miqdadbadjuber/anti-slop` (3,438, MIT, created 2026-08-07).
+
+## 2026-09-24
+
+No snapshot for 2026-09-24 existed at 07:49 UTC and no run had started:
+the 03:23 slot did not fire for the third day running (on 2026-09-23 it
+started at 08:41 UTC, 5 h 18 min late), so a `workflow_dispatch` was
+triggered at 07:49 UTC (run 35971734327) and is collecting at the time of
+writing.
+
+The 2026-09-23 snapshot is `complete` with an empty `errors` list: 39,963
+repositories, up 213 net on 253 arrivals and 40 departures,
+`churn.scope_changed` false. Arrivals are above the 7-day mean of 197 and
+departures match the 7-day mean of 42; 10 of the 40 departures reappear as
+an arrival with the same repository name under a different owner or casing.
+No licence file 16.7% (6,664), unidentifiable licence 7.8% (3,113),
+abandonment among eligible repositories 29.1%; 10 repositories crossed
+into `abandoned` and 5 were newly archived. Total stars rose 77,220 to
+19,469,829; the largest arrival is `feder-cr/invisible_playwright_mcp`
+(31,634 stars, MIT, created 2024-08-04), new to the index rather than new
+to GitHub.
