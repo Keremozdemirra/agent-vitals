@@ -243,8 +243,8 @@ and `miqdadbadjuber/anti-slop` (3,438, MIT, created 2026-08-07).
 ## 2026-09-24
 
 No snapshot for 2026-09-24 existed at 07:49 UTC and no run had started:
-the 03:23 slot did not fire for the third day running (on 2026-09-23 it
-started at 08:41 UTC, 5 h 18 min late), so a `workflow_dispatch` was
+the 03:23 slot has not yet fired on time: it did not fire on 2026-09-22,
+started 5 h 18 min late (08:41 UTC) on 2026-09-23, and has not fired today, so a `workflow_dispatch` was
 triggered at 07:49 UTC (run 35971734327) and is collecting at the time of
 writing.
 
