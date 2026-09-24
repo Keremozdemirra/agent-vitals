@@ -12,6 +12,22 @@ GitHub metadata, and keeps the answers as a time series:
 2. How much of it carries a licence you could actually use at work?
 3. What appeared, and what went quiet, since yesterday?
 
+## Check your own setup
+
+The same questions, asked of the MCP servers you actually run:
+[mcp-upkeep](https://github.com/Keremozdemirra/mcp-upkeep) reads your client configs
+and reports, for each server, when its repository was last pushed, whether it is
+archived or deprecated, what licence it carries and whether it is pinned. As a
+Claude Code plugin it asks before Claude adds a server that is archived, abandoned,
+deprecated or unlicensed.
+
+```
+/plugin marketplace add Keremozdemirra/mcp-upkeep
+/plugin install mcp-upkeep@mcp-upkeep
+```
+
+or, from a terminal, `uvx mcp-upkeep`.
+
 ## 2026-09-24
 
 - **40,128 repositories** across 13 topic queries in 2 tiers: **mcp** (17,795, 2+ stars), **agents** (22,333, 10+ stars).
