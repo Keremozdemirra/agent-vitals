@@ -5,15 +5,18 @@ An agent choosing a tool wants to know whether the repository behind it is
 still maintained and under what licence. The daily census already answers
 that for tens of thousands of repositories; this exposes it over the Model
 Context Protocol on stdio, so a client such as Claude Code or Cursor can ask.
+The same server can turn the question on the machine it runs on: `doctor`
+checks the MCP servers configured there (see doctor.py).
 
 Standard library only, like the rest of the repository. Protocol version
-2025-06-18, JSON-RPC 2.0 over stdin and stdout, one message per line. Four
+2025-06-18, JSON-RPC 2.0 over stdin and stdout, one message per line. Five
 tools:
 
   lookup      one repository by owner/name
   search      repositories by words in the name or description, with filters
   summary     the latest census totals
   candidates  the two acted-on lists: repositories to revive or contribute to
+  doctor      the MCP servers configured on this machine, checked against the same facts
 
 The index is read from data/servers.json next to this file, or from the
 published copy on GitHub when AGENT_VITALS_REMOTE=1 is set (one download,
@@ -123,6 +126,20 @@ def candidates(kind: str = "both", limit: int = 20) -> dict:
     return out
 
 
+def doctor(offline: bool = False) -> dict:
+    # Imported here, not at the top: the container image ships mcp_server.py alone,
+    # and a server with no local configs to read has no use for it.
+    import datetime as dt
+    import doctor as dr
+    servers, searched = dr.discover(Path.home(), Path.cwd(), [])
+    net = None if offline else dr.Net(False, os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN"))
+    today = dt.date.today()
+    results = [dr.examine(s, net, today) for s in servers]
+    return {"checked": today.isoformat(), "configs": searched, "summary": dr.summary_line(results) if results else "no servers",
+            "servers": [{k: r[k] for k in ("name", "client", "kind", "package", "repo", "status", "days_since_push", "flags")}
+                        for r in results]}
+
+
 TOOLS = [
     {"name": "lookup", "description": "Maintenance status, licence and activity of one GitHub repository from the agent-vitals daily census (MCP servers, agent frameworks, skills).",
      "inputSchema": {"type": "object", "properties": {"full_name": {"type": "string", "description": "owner/name, e.g. modelcontextprotocol/servers"}}, "required": ["full_name"]}},
@@ -140,7 +157,11 @@ TOOLS = [
      "inputSchema": {"type": "object", "properties": {"kind": {"type": "string", "enum": ["both", "revive", "contribute"]}, "limit": {"type": "integer", "minimum": 1, "maximum": 50}}}},
 ]
 
-HANDLERS = {"lookup": lookup, "search": search, "summary": summary, "candidates": candidates}
+if (HERE / "doctor.py").exists():
+    TOOLS.append({"name": "doctor", "description": "Check the MCP servers configured on this machine (Claude Code, Claude Desktop, Cursor, VS Code, Windsurf, Gemini CLI, Codex): the repository behind each, its maintenance status, licence, deprecation and whether the entry is pinned. Reads command, args and url only, never env or headers.",
+                  "inputSchema": {"type": "object", "properties": {"offline": {"type": "boolean", "description": "send nothing to npm, PyPI or GitHub; report only what the configs say"}}}})
+
+HANDLERS = {"lookup": lookup, "search": search, "summary": summary, "candidates": candidates, "doctor": doctor}
 
 
 # --------------------------------------------------------------- protocol

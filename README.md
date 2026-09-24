@@ -12,6 +12,37 @@ GitHub metadata, and keeps the answers as a time series:
 2. How much of it carries a licence you could actually use at work?
 3. What appeared, and what went quiet, since yesterday?
 
+## Check your own setup
+
+The same questions, asked of the MCP servers you actually run. `doctor` reads the
+configs of Claude Code, Claude Desktop, Cursor, VS Code, Windsurf, Gemini CLI and
+Codex, works out which package or repository each server starts, and reports when
+that repository was last pushed, whether it is archived or deprecated, what licence
+it carries, and whether the entry is pinned to a version at all.
+
+```bash
+uvx mcp-vitals            # or, with nothing installed:
+curl -sL https://raw.githubusercontent.com/Keremozdemirra/agent-vitals/main/doctor.py | python3 -
+```
+
+```
+server     starts                                 repository                status     push  licence  flags
+---------  -------------------------------------  ------------------------  ---------  ----  -------  -------------------
+whatsapp   lharries/whatsapp-mcp                  lharries/whatsapp-mcp     abandoned  438d  MIT      abandoned, unpinned
+github     ghcr.io/github/github-mcp-server       github/github-mcp-server  active     2d    MIT      unpinned
+github-v1  npm:@modelcontextprotocol/server-github@2025.4.8                                           deprecated, no source repository linked
+```
+
+- It reads `command`, `args` and `url` from each entry and never `env` or `headers`,
+  which is where API keys live.
+- It sends package names to npm and PyPI and owner/name pairs to the GitHub API,
+  nothing else. `--offline` sends nothing. Nothing is installed or started.
+- `--markdown` prints a table to paste into an issue; `--json` for scripts;
+  `--strict` exits 1 when a server is archived, abandoned, deprecated, gone or
+  unlicensed, for a CI job that guards a shared `.mcp.json`.
+- Without a `GITHUB_TOKEN` the API allows 60 requests an hour; past that, repository
+  facts come from the latest census instead, and the report says so.
+
 ## 2026-09-23
 
 - **39,963 repositories** across 13 topic queries in 2 tiers: **mcp** (17,728, 2+ stars), **agents** (22,235, 10+ stars).
@@ -187,11 +218,14 @@ open issues: maintained, wanted, and short of hands. Ranked by open issues.
 
 ## Ask it from an agent
 
-The census is an MCP server too, standard library only, four tools: `lookup` a
+The census is an MCP server too, standard library only, five tools: `lookup` a
 repository's status and licence, `search` by words with status and licence
-filters, `summary` of the latest run, and the two `candidates` lists.
+filters, `summary` of the latest run, the two `candidates` lists, and `doctor`,
+which checks the servers configured on the machine it runs on.
 
 ```bash
+claude mcp add agent-vitals -- uvx --from mcp-vitals mcp-vitals-server
+# or from a clone:
 git clone https://github.com/Keremozdemirra/agent-vitals && cd agent-vitals
 claude mcp add agent-vitals -- python3 "$PWD/mcp_server.py"
 ```
@@ -269,7 +303,7 @@ written for this repository.
 
 ## Licence
 
-- **Code** (`collect.py`, `render.py`, the workflow): MIT.
+- **Code** (`collect.py`, `render.py`, `doctor.py`, `mcp_server.py`, the workflows): MIT.
 - **The compilation** — the selection, structure and derived fields in `data/`:
   CC0 1.0. Take it, chart it, fork it, no attribution required.
 - **The `description` field**: belongs to whoever wrote it, and is reproduced here
