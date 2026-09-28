@@ -259,3 +259,26 @@ into `abandoned` and 5 were newly archived. Total stars rose 77,220 to
 19,469,829; the largest arrival is `feder-cr/invisible_playwright_mcp`
 (31,634 stars, MIT, created 2024-08-04), new to the index rather than new
 to GitHub.
+
+## 2026-09-28
+
+No snapshot for 2026-09-28 existed at 07:13 UTC and no run had started;
+the 03:23 slot has still not fired on time (over 2026-09-24 to 2026-09-27
+the census commit landed between 08:53 and 10:26 UTC), so a
+`workflow_dispatch` was triggered at 07:13 UTC (run 36390491416) and is
+collecting at the time of writing. No notes were written for 2026-09-25 to
+2026-09-27.
+
+The 2026-09-27 snapshot is `complete` with an empty `errors` list: 40,745
+repositories, up 222 net on 249 arrivals and 27 departures,
+`churn.scope_changed` false. Arrivals sit above the 7-day mean of 216;
+departures are the fewest since 2026-09-22 and below the 7-day mean of 35.
+At least 6 of the 27 departures reappear as an arrival with the same
+repository name under a different owner or casing (the arrivals list is
+capped at 200 of 249), including `itigges22/ATLAS` to `inferstep/ATLAS`
+(2,096 stars). No licence file 16.6% (6,775), unidentifiable licence 7.8%
+(3,180), abandonment among eligible repositories 29.2%; 8 repositories
+crossed into `abandoned` and 3 were newly archived. Total stars rose
+42,391 to 19,782,351, the smallest daily rise since at least 2026-09-20;
+the largest arrival is `jub0t/Concat` (3,763 stars, AGPL-3.0, created
+2026-08-25).
