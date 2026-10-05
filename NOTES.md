@@ -282,3 +282,21 @@ crossed into `abandoned` and 3 were newly archived. Total stars rose
 42,391 to 19,782,351, the smallest daily rise since at least 2026-09-20;
 the largest arrival is `jub0t/Concat` (3,763 stars, AGPL-3.0, created
 2026-08-25).
+
+## 2026-10-05
+
+No snapshot for 2026-10-05 existed at 07:04 UTC and no run had started;
+the 03:23 slot still fires late (the scheduled runs on 2026-10-03 and
+2026-10-04 started at 09:16 and 09:56 UTC), so a `workflow_dispatch` was
+triggered at 07:04 UTC (run 37275704548) and is collecting at the time of
+writing. No notes were written for 2026-09-29 to 2026-10-04.
+
+The 2026-10-04 snapshot is `complete` with an empty `errors` list: 42,375
+repositories, up 193 net on 228 arrivals and 35 departures,
+`churn.scope_changed` false. `active` fell 34 to 19,728, its first fall in
+the last seven rows, while `slowing` rose 189 to 8,503, the largest one-day
+rise in that window. `daytonaio/daytona` (71,670 stars) is among the 4
+newly archived repositories; 14 crossed into `abandoned`, and abandonment
+among eligible repositories holds at 29.2%. Total stars rose 58,606 to
+20,304,324; the largest arrival is `milind-soni/OpenMausBot` (4,018 stars,
+Apache-2.0, created 2026-08-11).
