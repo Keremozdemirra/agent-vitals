@@ -12,23 +12,23 @@ GitHub metadata, and keeps the answers as a time series:
 2. How much of it carries a licence you could actually use at work?
 3. What appeared, and what went quiet, since yesterday?
 
-## 2026-10-10
+## 2026-10-11
 
-- **43,626 repositories** across 13 topic queries in 2 tiers: **mcp** (19,594, 2+ stars), **agents** (24,032, 10+ stars).
+- **43,882 repositories** across 13 topic queries in 2 tiers: **mcp** (19,705, 2+ stars), **agents** (24,177, 10+ stars).
 - **46.2%** pushed in the last 30 days.
-- **7,016 (16.1%) have no licence file at all**, which leaves them under exclusive copyright by default: no permission to use, copy or modify them, whatever the README suggests. A further 3,495 (8.0%) carry a licence GitHub cannot map to a standard identifier — those are licensed, just not in a way a procurement review waves through.
-- Only 8,753 of these repositories are even a year old. Among those, **29.1% have not been pushed since** — the headline 5.8% across the whole index is an artefact of how young this ecosystem is.
-- Churn since the previous run: **+522 new**, **-93 gone**.
+- **7,025 (16.0%) have no licence file at all**, which leaves them under exclusive copyright by default: no permission to use, copy or modify them, whatever the README suggests. A further 3,534 (8.1%) carry a licence GitHub cannot map to a standard identifier — those are licensed, just not in a way a procurement review waves through.
+- Only 8,798 of these repositories are even a year old. Among those, **29.0% have not been pushed since** — the headline 5.8% across the whole index is an artefact of how young this ecosystem is.
+- Churn since the previous run: **+284 new**, **-28 gone**.
 
 ### Maintenance status
 
 | Status | Repositories | Share | Meaning |
 | --- | ---: | ---: | --- |
-| active | 20,164 | 46.2% | pushed within 30 days |
-| slowing | 8,761 | 20.1% | 31-90 days |
-| stale | 11,441 | 26.2% | 91-365 days |
-| abandoned | 2,544 | 5.8% | no push in over a year |
-| archived | 716 | 1.6% | archived by its owner |
+| active | 20,285 | 46.2% | pushed within 30 days |
+| slowing | 8,821 | 20.1% | 31-90 days |
+| stale | 11,504 | 26.2% | 91-365 days |
+| abandoned | 2,553 | 5.8% | no push in over a year |
+| archived | 719 | 1.6% | archived by its owner |
 
 ### Licences
 
@@ -38,14 +38,14 @@ it to a standard identifier.
 
 | Licence | Repositories | Share |
 | --- | ---: | ---: |
-| MIT | 24,199 | 55.5% |
-| no licence file | 7,016 | 16.1% |
-| Apache-2.0 | 6,160 | 14.1% |
-| licence GitHub cannot identify | 3,495 | 8.0% |
-| AGPL-3.0 | 1,212 | 2.8% |
+| MIT | 24,326 | 55.4% |
+| no licence file | 7,025 | 16.0% |
+| Apache-2.0 | 6,227 | 14.2% |
+| licence GitHub cannot identify | 3,534 | 8.1% |
+| AGPL-3.0 | 1,220 | 2.8% |
 | GPL-3.0 | 673 | 1.5% |
-| CC0-1.0 | 185 | 0.4% |
-| BSD-3-Clause | 125 | 0.3% |
+| CC0-1.0 | 187 | 0.4% |
+| BSD-3-Clause | 126 | 0.3% |
 | MPL-2.0 | 110 | 0.3% |
 | MIT-0 | 86 | 0.2% |
 
@@ -55,31 +55,31 @@ Ranked by stars, restricted to repositories pushed within the last 30 days.
 
 | Repository | Stars | Licence | Last push | Description |
 | --- | ---: | --- | --- | --- |
-| [affaan-m/ECC](https://github.com/affaan-m/ECC) | 276,206 | MIT | 2026-10-10 | The agent harness performance optimization system. Skills, instincts, memory, security, and research-first dev |
-| [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | 252,405 | MIT | 2026-10-10 | The agent that grows with you |
-| [deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness) | 246,726 | MIT | 2026-10-09 | DeepSeek Harness: Everything is a Plugin. |
-| [n8n-io/n8n](https://github.com/n8n-io/n8n) | 206,880 | non-standard | 2026-10-10 | Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code,  |
-| [firecrawl/firecrawl](https://github.com/firecrawl/firecrawl) | 190,055 | AGPL-3.0 | 2026-10-10 | Supercharge your AI agents with data from the web and beyond. Building the library for superintelligence. 🔥 |
-| [Significant-Gravitas/AutoGPT](https://github.com/Significant-Gravitas/AutoGPT) | 187,503 | non-standard | 2026-10-10 | AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the too |
-| [anthropics/skills](https://github.com/anthropics/skills) | 180,243 | **no licence file** | 2026-10-09 | Public repository for Agent Skills |
-| [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | 160,056 | MIT | 2026-10-10 | Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote. |
-| [Snailclimb/JavaGuide](https://github.com/Snailclimb/JavaGuide) | 158,919 | Apache-2.0 | 2026-10-03 | Java 面试 & 后端通用面试指南，覆盖计算机基础、数据库、分布式、高并发、系统设计与 AI 应用开发 |
-| [langgenius/dify](https://github.com/langgenius/dify) | 158,074 | non-standard | 2026-10-10 | Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. De |
-| [open-webui/open-webui](https://github.com/open-webui/open-webui) | 154,179 | non-standard | 2026-10-10 | User-friendly AI Interface (Supports Ollama, OpenAI API, ...) |
-| [langchain-ai/langchain](https://github.com/langchain-ai/langchain) | 147,549 | MIT | 2026-10-10 | The agent engineering platform. |
-| [farion1231/cc-switch](https://github.com/farion1231/cc-switch) | 142,271 | MIT | 2026-10-10 | A cross-platform desktop All-in-One assistant for Claude Code, Codex, OpenCode, OpenClaw, Grok Build & Hermes  |
-| [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | 134,358 | MIT | 2026-10-09 | An AI skill that provides design intelligence for building professional UI/UX across multiple platforms. |
-| [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | 125,140 | Apache-2.0 | 2026-10-10 | Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphif |
-| [browser-use/browser-use](https://github.com/browser-use/browser-use) | 117,490 | MIT | 2026-10-09 | Agents that use the browser. |
-| [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | 110,849 | Apache-2.0 | 2026-10-10 | 🪨 why use many token when few token do trick. Viral skill + proxy for coding agents that cuts 65% of tokens by |
-| [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) | 107,267 | Apache-2.0 | 2026-10-10 | An open-source AI agent that brings the power of Gemini directly into your terminal. |
-| [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | 104,301 | MIT | 2026-10-10 | Production-grade engineering skills for AI coding agents. |
-| [nexu-io/open-design](https://github.com/nexu-io/open-design) | 100,317 | Apache-2.0 | 2026-10-10 | 🎨 Best DeepSeek Harness Design Plugin. The open-source Claude Design alternative. 🖥️ Local-first desktop app.  |
-| [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | 99,098 | Apache-2.0 | 2026-10-09 | Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, comp |
-| [punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) | 96,030 | MIT | 2026-10-09 | A collection of MCP servers. |
-| [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) | 95,261 | MIT | 2026-10-08 | Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili,  |
-| [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | 94,255 | MIT | 2026-10-09 | Taste-Skill - gives your AI good taste. stops the AI from generating boring, generic slop |
-| [infiniflow/ragflow](https://github.com/infiniflow/ragflow) | 91,943 | Apache-2.0 | 2026-10-10 | RAGFlow is a leading open-source Retrieval-Augmented Generation (RAG) engine that fuses cutting-edge RAG with  |
+| [affaan-m/ECC](https://github.com/affaan-m/ECC) | 276,803 | MIT | 2026-10-11 | The agent harness performance optimization system. Skills, instincts, memory, security, and research-first dev |
+| [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | 252,669 | MIT | 2026-10-11 | The agent that grows with you |
+| [deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness) | 247,281 | MIT | 2026-10-09 | DeepSeek Harness: Everything is a Plugin. |
+| [n8n-io/n8n](https://github.com/n8n-io/n8n) | 206,966 | non-standard | 2026-10-11 | Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code,  |
+| [firecrawl/firecrawl](https://github.com/firecrawl/firecrawl) | 190,325 | AGPL-3.0 | 2026-10-10 | Supercharge your AI agents with data from the web and beyond. Building the library for superintelligence. 🔥 |
+| [Significant-Gravitas/AutoGPT](https://github.com/Significant-Gravitas/AutoGPT) | 187,516 | non-standard | 2026-10-11 | AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the too |
+| [anthropics/skills](https://github.com/anthropics/skills) | 180,418 | **no licence file** | 2026-10-09 | Public repository for Agent Skills |
+| [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | 160,757 | MIT | 2026-10-10 | Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote. |
+| [Snailclimb/JavaGuide](https://github.com/Snailclimb/JavaGuide) | 158,933 | Apache-2.0 | 2026-10-03 | Java 面试 & 后端通用面试指南，覆盖计算机基础、数据库、分布式、高并发、系统设计与 AI 应用开发 |
+| [langgenius/dify](https://github.com/langgenius/dify) | 158,130 | non-standard | 2026-10-11 | Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. De |
+| [open-webui/open-webui](https://github.com/open-webui/open-webui) | 154,260 | non-standard | 2026-10-10 | User-friendly AI Interface (Supports Ollama, OpenAI API, ...) |
+| [langchain-ai/langchain](https://github.com/langchain-ai/langchain) | 147,607 | MIT | 2026-10-11 | The agent engineering platform. |
+| [farion1231/cc-switch](https://github.com/farion1231/cc-switch) | 142,654 | MIT | 2026-10-11 | A cross-platform desktop All-in-One assistant for Claude Code, Codex, OpenCode, OpenClaw, Grok Build & Hermes  |
+| [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | 134,657 | MIT | 2026-10-10 | An AI skill that provides design intelligence for building professional UI/UX across multiple platforms. |
+| [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | 125,401 | Apache-2.0 | 2026-10-10 | Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphif |
+| [browser-use/browser-use](https://github.com/browser-use/browser-use) | 117,607 | MIT | 2026-10-09 | Agents that use the browser. |
+| [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | 110,974 | Apache-2.0 | 2026-10-11 | 🪨 why use many token when few token do trick. Viral skill + proxy for coding agents that cuts 65% of tokens by |
+| [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) | 107,282 | Apache-2.0 | 2026-10-10 | An open-source AI agent that brings the power of Gemini directly into your terminal. |
+| [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | 104,661 | MIT | 2026-10-10 | Production-grade engineering skills for AI coding agents. |
+| [nexu-io/open-design](https://github.com/nexu-io/open-design) | 100,485 | Apache-2.0 | 2026-10-11 | 🎨 Best DeepSeek Harness Design Plugin. The open-source Claude Design alternative. 🖥️ Local-first desktop app.  |
+| [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | 99,475 | Apache-2.0 | 2026-10-11 | Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, comp |
+| [punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) | 96,099 | MIT | 2026-10-09 | A collection of MCP servers. |
+| [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) | 95,650 | MIT | 2026-10-08 | Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili,  |
+| [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | 94,553 | MIT | 2026-10-09 | Taste-Skill - gives your AI good taste. stops the AI from generating boring, generic slop |
+| [infiniflow/ragflow](https://github.com/infiniflow/ragflow) | 91,989 | Apache-2.0 | 2026-10-11 | RAGFlow is a leading open-source Retrieval-Augmented Generation (RAG) engine that fuses cutting-edge RAG with  |
 
 ### Popular but unmaintained
 
@@ -88,26 +88,26 @@ curated lists long after anyone stopped answering issues.
 
 | Repository | Stars | Last push | Days |
 | --- | ---: | --- | ---: |
-| [TransformerOptimus/SuperAGI](https://github.com/TransformerOptimus/SuperAGI) | 17,701 | 2025-01-22 | 626 |
-| [plandex-ai/plandex](https://github.com/plandex-ai/plandex) | 15,705 | 2025-10-03 | 372 |
-| [RayVentura/ShortGPT](https://github.com/RayVentura/ShortGPT) | 8,013 | 2025-02-10 | 607 |
-| [BrowserMCP/mcp](https://github.com/BrowserMCP/mcp) | 7,176 | 2025-04-24 | 534 |
-| [lharries/whatsapp-mcp](https://github.com/lharries/whatsapp-mcp) | 6,463 | 2025-07-13 | 454 |
-| [aiwaves-cn/agents](https://github.com/aiwaves-cn/agents) | 5,966 | 2024-09-26 | 744 |
-| [zhaoyingjun/chatbot](https://github.com/zhaoyingjun/chatbot) | 3,582 | 2025-10-09 | 366 |
-| [liaokongVFX/MCP-Chinese-Getting-Started-Guide](https://github.com/liaokongVFX/MCP-Chinese-Getting-Started-Guide) | 3,575 | 2025-04-23 | 535 |
-| [flydelabs/flyde](https://github.com/flydelabs/flyde) | 3,505 | 2025-07-27 | 440 |
-| [BAAI-Agents/Cradle](https://github.com/BAAI-Agents/Cradle) | 2,595 | 2024-11-07 | 702 |
-| [semanser/codel](https://github.com/semanser/codel) | 2,473 | 2024-04-29 | 894 |
-| [dot-agent/nextpy](https://github.com/dot-agent/nextpy) | 2,346 | 2024-05-01 | 892 |
-| [trypromptly/LLMStack](https://github.com/trypromptly/LLMStack) | 2,308 | 2024-12-11 | 668 |
-| [cjo4m06/mcp-shrimp-task-manager](https://github.com/cjo4m06/mcp-shrimp-task-manager) | 2,148 | 2025-08-21 | 415 |
-| [chatmcp/mcpso](https://github.com/chatmcp/mcpso) | 2,109 | 2025-03-26 | 563 |
-| [chongdashu/unreal-mcp](https://github.com/chongdashu/unreal-mcp) | 2,091 | 2025-04-22 | 536 |
-| [SqueezeAILab/LLMCompiler](https://github.com/SqueezeAILab/LLMCompiler) | 1,894 | 2024-07-10 | 822 |
-| [lst97/claude-code-sub-agents](https://github.com/lst97/claude-code-sub-agents) | 1,698 | 2025-08-15 | 421 |
-| [TIGER-AI-Lab/TheoremExplainAgent](https://github.com/TIGER-AI-Lab/TheoremExplainAgent) | 1,511 | 2025-07-27 | 440 |
-| [agi-inc/agent-protocol](https://github.com/agi-inc/agent-protocol) | 1,457 | 2025-04-08 | 550 |
+| [TransformerOptimus/SuperAGI](https://github.com/TransformerOptimus/SuperAGI) | 17,701 | 2025-01-22 | 627 |
+| [plandex-ai/plandex](https://github.com/plandex-ai/plandex) | 15,706 | 2025-10-03 | 373 |
+| [RayVentura/ShortGPT](https://github.com/RayVentura/ShortGPT) | 8,020 | 2025-02-10 | 608 |
+| [BrowserMCP/mcp](https://github.com/BrowserMCP/mcp) | 7,176 | 2025-04-24 | 535 |
+| [lharries/whatsapp-mcp](https://github.com/lharries/whatsapp-mcp) | 6,525 | 2025-07-13 | 455 |
+| [aiwaves-cn/agents](https://github.com/aiwaves-cn/agents) | 5,967 | 2024-09-26 | 745 |
+| [zhaoyingjun/chatbot](https://github.com/zhaoyingjun/chatbot) | 3,581 | 2025-10-09 | 367 |
+| [liaokongVFX/MCP-Chinese-Getting-Started-Guide](https://github.com/liaokongVFX/MCP-Chinese-Getting-Started-Guide) | 3,576 | 2025-04-23 | 536 |
+| [flydelabs/flyde](https://github.com/flydelabs/flyde) | 3,505 | 2025-07-27 | 441 |
+| [BAAI-Agents/Cradle](https://github.com/BAAI-Agents/Cradle) | 2,596 | 2024-11-07 | 703 |
+| [semanser/codel](https://github.com/semanser/codel) | 2,473 | 2024-04-29 | 895 |
+| [dot-agent/nextpy](https://github.com/dot-agent/nextpy) | 2,347 | 2024-05-01 | 893 |
+| [trypromptly/LLMStack](https://github.com/trypromptly/LLMStack) | 2,308 | 2024-12-11 | 669 |
+| [cjo4m06/mcp-shrimp-task-manager](https://github.com/cjo4m06/mcp-shrimp-task-manager) | 2,148 | 2025-08-21 | 416 |
+| [chatmcp/mcpso](https://github.com/chatmcp/mcpso) | 2,110 | 2025-03-26 | 564 |
+| [chongdashu/unreal-mcp](https://github.com/chongdashu/unreal-mcp) | 2,093 | 2025-04-22 | 537 |
+| [SqueezeAILab/LLMCompiler](https://github.com/SqueezeAILab/LLMCompiler) | 1,894 | 2024-07-10 | 823 |
+| [lst97/claude-code-sub-agents](https://github.com/lst97/claude-code-sub-agents) | 1,698 | 2025-08-15 | 422 |
+| [TIGER-AI-Lab/TheoremExplainAgent](https://github.com/TIGER-AI-Lab/TheoremExplainAgent) | 1,511 | 2025-07-27 | 441 |
+| [agi-inc/agent-protocol](https://github.com/agi-inc/agent-protocol) | 1,458 | 2025-04-08 | 551 |
 
 ### Quiet, permissive, still asked about
 
@@ -118,25 +118,25 @@ stands. A date, a star count and a licence field, never a verdict on the work.
 | Repository | Stars | Open issues | Licence | Last push |
 | --- | ---: | ---: | --- | --- |
 | [TransformerOptimus/SuperAGI](https://github.com/TransformerOptimus/SuperAGI) | 17,701 | 263 | MIT | 2025-01-22 |
-| [plandex-ai/plandex](https://github.com/plandex-ai/plandex) | 15,705 | 66 | MIT | 2025-10-03 |
-| [bytebot-ai/bytebot](https://github.com/bytebot-ai/bytebot) | 11,077 | 72 | Apache-2.0 | 2025-09-12 |
-| [RayVentura/ShortGPT](https://github.com/RayVentura/ShortGPT) | 8,013 | 86 | MIT | 2025-02-10 |
+| [plandex-ai/plandex](https://github.com/plandex-ai/plandex) | 15,706 | 66 | MIT | 2025-10-03 |
+| [bytebot-ai/bytebot](https://github.com/bytebot-ai/bytebot) | 11,075 | 72 | Apache-2.0 | 2025-09-12 |
+| [RayVentura/ShortGPT](https://github.com/RayVentura/ShortGPT) | 8,020 | 86 | MIT | 2025-02-10 |
 | [BrowserMCP/mcp](https://github.com/BrowserMCP/mcp) | 7,176 | 154 | Apache-2.0 | 2025-04-24 |
-| [airweave-ai/airweave](https://github.com/airweave-ai/airweave) | 6,558 | 105 | MIT | 2026-06-05 |
-| [lharries/whatsapp-mcp](https://github.com/lharries/whatsapp-mcp) | 6,463 | 252 | MIT | 2025-07-13 |
-| [microsoft/TaskWeaver](https://github.com/microsoft/TaskWeaver) | 6,165 | 53 | MIT | 2026-03-23 |
-| [aiwaves-cn/agents](https://github.com/aiwaves-cn/agents) | 5,966 | 49 | Apache-2.0 | 2024-09-26 |
-| [SolaceLabs/solace-agent-mesh](https://github.com/SolaceLabs/solace-agent-mesh) | 4,917 | 100 | Apache-2.0 | 2026-09-13 |
-| [abhi1693/openclaw-mission-control](https://github.com/abhi1693/openclaw-mission-control) | 4,102 | 85 | MIT | 2026-08-06 |
-| [browserbase/mcp-server-browserbase](https://github.com/browserbase/mcp-server-browserbase) | 3,405 | 52 | Apache-2.0 | 2026-07-20 |
-| [BAAI-Agents/Cradle](https://github.com/BAAI-Agents/Cradle) | 2,595 | 23 | MIT | 2024-11-07 |
+| [airweave-ai/airweave](https://github.com/airweave-ai/airweave) | 6,557 | 105 | MIT | 2026-06-05 |
+| [lharries/whatsapp-mcp](https://github.com/lharries/whatsapp-mcp) | 6,525 | 252 | MIT | 2025-07-13 |
+| [microsoft/TaskWeaver](https://github.com/microsoft/TaskWeaver) | 6,164 | 53 | MIT | 2026-03-23 |
+| [aiwaves-cn/agents](https://github.com/aiwaves-cn/agents) | 5,967 | 49 | Apache-2.0 | 2024-09-26 |
+| [SolaceLabs/solace-agent-mesh](https://github.com/SolaceLabs/solace-agent-mesh) | 4,917 | 99 | Apache-2.0 | 2026-09-13 |
+| [abhi1693/openclaw-mission-control](https://github.com/abhi1693/openclaw-mission-control) | 4,103 | 85 | MIT | 2026-08-06 |
+| [browserbase/mcp-server-browserbase](https://github.com/browserbase/mcp-server-browserbase) | 3,403 | 52 | Apache-2.0 | 2026-07-20 |
+| [BAAI-Agents/Cradle](https://github.com/BAAI-Agents/Cradle) | 2,596 | 23 | MIT | 2024-11-07 |
 | [lmnr-ai/index](https://github.com/lmnr-ai/index) | 2,442 | 6 | Apache-2.0 | 2025-06-09 |
-| [dot-agent/nextpy](https://github.com/dot-agent/nextpy) | 2,346 | 23 | Apache-2.0 | 2024-05-01 |
+| [dot-agent/nextpy](https://github.com/dot-agent/nextpy) | 2,347 | 23 | Apache-2.0 | 2024-05-01 |
 | [Mintplex-Labs/vector-admin](https://github.com/Mintplex-Labs/vector-admin) | 2,242 | 43 | MIT | 2025-04-15 |
 | [cjo4m06/mcp-shrimp-task-manager](https://github.com/cjo4m06/mcp-shrimp-task-manager) | 2,148 | 47 | MIT | 2025-08-21 |
-| [chatmcp/mcpso](https://github.com/chatmcp/mcpso) | 2,109 | 4,165 | Apache-2.0 | 2025-03-26 |
+| [chatmcp/mcpso](https://github.com/chatmcp/mcpso) | 2,110 | 4,205 | Apache-2.0 | 2025-03-26 |
 | [SqueezeAILab/LLMCompiler](https://github.com/SqueezeAILab/LLMCompiler) | 1,894 | 7 | MIT | 2024-07-10 |
-| [zhu1090093659/deepseek-pp](https://github.com/zhu1090093659/deepseek-pp) | 1,863 | 30 | Apache-2.0 | 2026-08-13 |
+| [zhu1090093659/deepseek-pp](https://github.com/zhu1090093659/deepseek-pp) | 1,862 | 30 | Apache-2.0 | 2026-08-13 |
 
 ### Busy, permissive, with open work
 
@@ -145,32 +145,31 @@ open issues: maintained, wanted, and short of hands. Ranked by open issues.
 
 | Repository | Open issues | Stars | Licence | Last push |
 | --- | ---: | ---: | --- | --- |
-| [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | 47,695 | 252,405 | MIT | 2026-10-10 |
-| [stablyai/orca](https://github.com/stablyai/orca) | 8,285 | 88,913 | MIT | 2026-10-10 |
-| [can1357/oh-my-pi](https://github.com/can1357/oh-my-pi) | 3,669 | 34,870 | MIT | 2026-10-10 |
+| [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | 47,820 | 252,669 | MIT | 2026-10-11 |
+| [stablyai/orca](https://github.com/stablyai/orca) | 8,057 | 89,434 | MIT | 2026-10-11 |
+| [can1357/oh-my-pi](https://github.com/can1357/oh-my-pi) | 3,689 | 34,987 | MIT | 2026-10-11 |
+| [punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) | 2,633 | 96,099 | MIT | 2026-10-09 |
 | [agentuniverse-ai/agentUniverse](https://github.com/agentuniverse-ai/agentUniverse) | 2,605 | 2,378 | Apache-2.0 | 2026-09-14 |
-| [punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) | 2,590 | 96,030 | MIT | 2026-10-09 |
-| [kirodotdev/KiroCrew](https://github.com/kirodotdev/KiroCrew) | 2,576 | 4,354 | Apache-2.0 | 2026-10-10 |
-| [decolua/9router](https://github.com/decolua/9router) | 2,448 | 30,548 | MIT | 2026-10-08 |
-| [farion1231/cc-switch](https://github.com/farion1231/cc-switch) | 2,017 | 142,271 | MIT | 2026-10-10 |
-| [agno-agi/agno](https://github.com/agno-agi/agno) | 1,846 | 42,649 | Apache-2.0 | 2026-10-10 |
-| [omnigent-ai/omnigent](https://github.com/omnigent-ai/omnigent) | 1,807 | 10,716 | Apache-2.0 | 2026-10-10 |
-| [QwenLM/qwen-code](https://github.com/QwenLM/qwen-code) | 1,791 | 28,397 | Apache-2.0 | 2026-10-10 |
-| [makecindy/cindy](https://github.com/makecindy/cindy) | 1,569 | 2,987 | Apache-2.0 | 2026-10-10 |
-| [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | 1,542 | 125,140 | Apache-2.0 | 2026-10-10 |
-| [rtk-ai/rtk](https://github.com/rtk-ai/rtk) | 1,511 | 82,829 | Apache-2.0 | 2026-10-09 |
-| [gastownhall/beads](https://github.com/gastownhall/beads) | 1,419 | 27,778 | MIT | 2026-10-10 |
-| [pydantic/pydantic-ai](https://github.com/pydantic/pydantic-ai) | 1,389 | 20,528 | MIT | 2026-10-10 |
-| [infiniflow/ragflow](https://github.com/infiniflow/ragflow) | 1,360 | 91,943 | Apache-2.0 | 2026-10-10 |
-| [aden-hive/hive](https://github.com/aden-hive/hive) | 1,357 | 11,086 | Apache-2.0 | 2026-10-10 |
-| [open-mercato/open-mercato](https://github.com/open-mercato/open-mercato) | 1,262 | 1,836 | MIT | 2026-10-10 |
-| [maximhq/bifrost](https://github.com/maximhq/bifrost) | 1,207 | 8,682 | Apache-2.0 | 2026-10-10 |
+| [kirodotdev/KiroCrew](https://github.com/kirodotdev/KiroCrew) | 2,582 | 4,367 | Apache-2.0 | 2026-10-11 |
+| [decolua/9router](https://github.com/decolua/9router) | 2,455 | 30,595 | MIT | 2026-10-08 |
+| [farion1231/cc-switch](https://github.com/farion1231/cc-switch) | 1,933 | 142,654 | MIT | 2026-10-11 |
+| [agno-agi/agno](https://github.com/agno-agi/agno) | 1,851 | 42,659 | Apache-2.0 | 2026-10-11 |
+| [omnigent-ai/omnigent](https://github.com/omnigent-ai/omnigent) | 1,832 | 10,739 | Apache-2.0 | 2026-10-11 |
+| [QwenLM/qwen-code](https://github.com/QwenLM/qwen-code) | 1,809 | 28,409 | Apache-2.0 | 2026-10-11 |
+| [makecindy/cindy](https://github.com/makecindy/cindy) | 1,579 | 2,995 | Apache-2.0 | 2026-10-11 |
+| [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | 1,551 | 125,401 | Apache-2.0 | 2026-10-10 |
+| [rtk-ai/rtk](https://github.com/rtk-ai/rtk) | 1,512 | 82,925 | Apache-2.0 | 2026-10-09 |
+| [gastownhall/beads](https://github.com/gastownhall/beads) | 1,422 | 27,794 | MIT | 2026-10-11 |
+| [pydantic/pydantic-ai](https://github.com/pydantic/pydantic-ai) | 1,394 | 20,540 | MIT | 2026-10-11 |
+| [infiniflow/ragflow](https://github.com/infiniflow/ragflow) | 1,378 | 91,989 | Apache-2.0 | 2026-10-11 |
+| [aden-hive/hive](https://github.com/aden-hive/hive) | 1,359 | 11,094 | Apache-2.0 | 2026-10-10 |
+| [open-mercato/open-mercato](https://github.com/open-mercato/open-mercato) | 1,282 | 1,838 | MIT | 2026-10-11 |
+| [maximhq/bifrost](https://github.com/maximhq/bifrost) | 1,243 | 8,696 | Apache-2.0 | 2026-10-11 |
 
 ### Trend
 
 | Date | Repositories | Active | Abandoned | No licence file | New |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| 2026-09-27 | 40,745 | 18,903 | 2,421 | 6,775 | +249 |
 | 2026-09-28 | 41,183 | 19,248 | 2,428 | 6,887 | +466 |
 | 2026-09-29 | 41,460 | 19,459 | 2,438 | 6,897 | +325 |
 | 2026-09-30 | 41,589 | 19,592 | 2,440 | 6,896 | +294 |
@@ -184,6 +183,7 @@ open issues: maintained, wanted, and short of hands. Ranked by open issues.
 | 2026-10-08 | 42,937 | 19,772 | 2,515 | 6,946 | +276 |
 | 2026-10-09 | 43,197 | 20,067 | 2,441 | 6,925 | +577 |
 | 2026-10-10 | 43,626 | 20,164 | 2,544 | 7,016 | +522 |
+| 2026-10-11 | 43,882 | 20,285 | 2,553 | 7,025 | +284 |
 
 ## Ask it from an agent
 
@@ -283,4 +283,4 @@ index, open an issue and it will be removed from the next run.
 
 ---
 
-_Regenerated automatically. Last run: 2026-10-10T11:07:44+00:00 · status: complete._
+_Regenerated automatically. Last run: 2026-10-11T11:22:46+00:00 · status: complete._
