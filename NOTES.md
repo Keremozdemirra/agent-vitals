@@ -300,3 +300,32 @@ newly archived repositories; 14 crossed into `abandoned`, and abandonment
 among eligible repositories holds at 29.2%. Total stars rose 58,606 to
 20,304,324; the largest arrival is `milind-soni/OpenMausBot` (4,018 stars,
 Apache-2.0, created 2026-08-11).
+
+## 2026-10-12
+
+No snapshot for 2026-10-12 existed at 07:01 UTC and no run had started;
+the 03:23 slot still fires hours late (the scheduled runs on 2026-10-10
+and 2026-10-11 started at 09:59 and 10:08 UTC), so a `workflow_dispatch`
+was triggered at 07:01 UTC (run 38215528250) and committed the day's
+census at 08:19 UTC; the scheduled run created at 11:04 UTC found it and
+exited. No notes were written for 2026-10-06 to 2026-10-11.
+
+The 2026-10-11 snapshot is `complete` with an empty `errors` list: 43,882
+repositories, up 256 net on 284 arrivals and 28 departures,
+`churn.scope_changed` false. Both churn figures sit below the prior 7-day
+means (338 arrivals, 131 departures, the latter lifted by 337 and 317 on
+2026-10-08 and 2026-10-09); 28 departures ties 2026-09-28 as the fewest
+since 2026-09-27. `DSH-EAC/EAC-Desktop` left and `Ebony-Vinyl/EAC-Desktop`
+(1,972 stars, MIT) arrived on the same day under the same repository name.
+`active` rose 121 to 20,285, abandonment among eligible repositories is
+29.0%, 9 repositories crossed into `abandoned` and 4 were newly archived;
+total stars rose 86,506 to 20,883,557. The largest arrival is
+`nirholas/fresh-start` (6,229 stars, licence GitHub cannot identify,
+created 2026-03-31).
+
+The 2026-10-12 snapshot is `complete` with an empty `errors` list: 44,069
+repositories, up 187 net on 234 arrivals and 47 departures,
+`churn.scope_changed` false. `active` rose 101 to 20,386, 8 repositories
+crossed into `abandoned`, 2 were newly archived, and abandonment among
+eligible repositories holds at 29.0%; total stars rose 124,727 to
+21,008,284.
