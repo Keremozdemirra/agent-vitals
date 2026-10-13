@@ -329,3 +329,17 @@ repositories, up 187 net on 234 arrivals and 47 departures,
 crossed into `abandoned`, 2 were newly archived, and abandonment among
 eligible repositories holds at 29.0%; total stars rose 124,727 to
 21,008,284.
+
+## 2026-10-13
+
+No snapshot for 2026-10-13 existed at 07:12 UTC and no run had started
+for the day; the 03:23 slot has not fired on time on any day since at
+least 2026-10-10 (scheduled starts at 09:59, 10:08 and 11:04 UTC). A
+`workflow_dispatch` was triggered at 07:12 UTC (run 38361259514). Until it
+commits, the newest snapshot is 2026-10-12, already described above.
+
+Over the seven days from 2026-10-05 to 2026-10-12 the index grew 1,524
+to 44,069 repositories and `active` grew 695 to 20,386; the share
+without a licence file fell from 16.3% to 16.0%, and abandonment among
+eligible repositories stayed between 28.4% and 29.2%. Nothing else in
+that window moved against the trend.
