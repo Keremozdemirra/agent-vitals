@@ -343,3 +343,30 @@ to 44,069 repositories and `active` grew 695 to 20,386; the share
 without a licence file fell from 16.3% to 16.0%, and abandonment among
 eligible repositories stayed between 28.4% and 29.2%. Nothing else in
 that window moved against the trend.
+
+## 2026-10-14
+
+No snapshot for 2026-10-14 existed at 07:12 UTC and no run had started;
+the 03:23 slot again did not fire on time (the 2026-10-13 scheduled runs
+started at 10:47 and 17:00 UTC). A `workflow_dispatch` was triggered at
+07:13 UTC (run 38526892655) and committed the census at 08:27 UTC.
+
+The 2026-10-13 snapshot is `partial`: one search page failed with HTTP 502
+(`topic:mcp stars:30..39 page 3`), so up to 100 repositories in that band
+were not seen, and some of its 206 departures (against 47 and 28 on the two
+days before) are likely an artefact of the missed page rather than repositories
+leaving. Some churn is renames: `AIAnytime/Awesome-MCP-Server` left as
+`AIAnytime/Awesome-MCP-Servers` arrived, and `0xbosonax/poly-alpha-lab` as
+`0xbsnx/poly-alpha-lab`. The index counted 44,208 repositories (+139 net,
+345 arrivals), `active` 20,564, abandonment among eligible repositories
+28.9%; `cloudflare/playwright-mcp` is among the 3 newly archived. The
+collector now retries 5xx responses, which it previously re-raised at once.
+
+The 2026-10-14 snapshot is `complete` with an empty `errors` list: 44,618
+repositories, up 410 net on 482 arrivals and 72 departures,
+`churn.scope_changed` false. The arrivals are partly recovery from the
+previous day's missed page: 60 of the 200 listed arrivals sit in the 30 to
+39 star band, and 140 of the 200 were created before 2026-10-01. `active`
+rose 276 to 20,840, 13 repositories crossed into `abandoned`, 6 were newly
+archived, and abandonment among eligible repositories is 29.0%; total stars
+rose 118,886 to 21,358,586.

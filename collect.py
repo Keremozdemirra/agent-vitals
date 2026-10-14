@@ -86,6 +86,11 @@ def api_get(url: str, attempt: int = 0) -> dict:
             print(f"    rate limited, waiting {wait}s", file=sys.stderr)
             time.sleep(min(wait, 120))
             return api_get(url, attempt + 1)
+        # A 5xx is transient on GitHub's side; without this branch it would
+        # skip the URLError retry below, since HTTPError subclasses URLError.
+        if exc.code >= 500 and attempt < 4:
+            time.sleep((2 ** attempt) * 5)
+            return api_get(url, attempt + 1)
         raise
     except (urllib.error.URLError, TimeoutError, json.JSONDecodeError):
         if attempt < 4:
