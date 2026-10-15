@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import csv
 import datetime as dt
+import http.client
 import json
 import os
 import sys
@@ -92,7 +93,10 @@ def api_get(url: str, attempt: int = 0) -> dict:
             time.sleep((2 ** attempt) * 5)
             return api_get(url, attempt + 1)
         raise
-    except (urllib.error.URLError, TimeoutError, json.JSONDecodeError):
+    # urlopen raises RemoteDisconnected from getresponse() unwrapped, so it
+    # is not a URLError; it cost the 2026-10-15 census one search page.
+    except (urllib.error.URLError, http.client.HTTPException, ConnectionError,
+            TimeoutError, json.JSONDecodeError):
         if attempt < 4:
             time.sleep((2 ** attempt) * 5)
             return api_get(url, attempt + 1)

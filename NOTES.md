@@ -370,3 +370,22 @@ previous day's missed page: 60 of the 200 listed arrivals sit in the 30 to
 rose 276 to 20,840, 13 repositories crossed into `abandoned`, 6 were newly
 archived, and abandonment among eligible repositories is 29.0%; total stars
 rose 118,886 to 21,358,586.
+
+## 2026-10-15
+
+No snapshot for 2026-10-15 existed at 07:12 UTC and no run had started;
+the 03:23 slot did not fire on time for a ninth straight day. Over
+2026-10-07 to 2026-10-14 the first scheduled run of each day started
+between 08:51 and 11:04 UTC, five to eight hours after its cron time. A
+`workflow_dispatch` was triggered at 07:13 UTC (run 38697263413) and
+committed the census at 08:26 UTC.
+
+The snapshot is `partial`: the connection dropped on
+`topic:claude-code stars:80..119 page 8` (`RemoteDisconnected`), so up to
+100 repositories in that band were not seen and some of the 91 departures
+may be an artefact. The index counted 44,775 repositories (+157 net, 248
+arrivals), `churn.scope_changed` false, `active` 20,905, abandonment among
+eligible repositories 29.0%, no licence file 15.8%; 9 crossed into
+`abandoned` and 7 were newly archived. The collector now also retries
+dropped connections, which `urlopen` raises outside `URLError` and the
+retry from 2026-10-14 therefore did not catch.
