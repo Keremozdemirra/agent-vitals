@@ -389,3 +389,15 @@ eligible repositories 29.0%, no licence file 15.8%; 9 crossed into
 `abandoned` and 7 were newly archived. The collector now also retries
 dropped connections, which `urlopen` raises outside `URLError` and the
 retry from 2026-10-14 therefore did not catch.
+
+## 2026-10-20
+
+The census is `complete` with no errors, but the 03:23 UTC slot again
+started late: run 39395252229 was created at 08:41 UTC and committed at
+10:00 UTC. The index counted 46,126 repositories (+275 net: 355 arrivals,
+80 departures, against 33 to 51 departures on each of the previous four
+days), `churn.scope_changed` false. `active` rose 259 to 21,923, 11
+repositories crossed into `abandoned`, 8 were newly archived, abandonment
+among eligible repositories is 28.7%, and the share with no licence file
+fell to 15.4% from 15.8% a week earlier; total stars rose 114,433 to
+22,020,377.
