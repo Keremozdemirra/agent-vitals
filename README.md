@@ -1,8 +1,7 @@
 # agent-vitals
 
-**A daily census of the AI agent tooling ecosystem on GitHub — MCP servers, agent
-frameworks, skills and the tools around them. Not a list of what exists, but a
-measurement of what is still alive.**
+**A daily census of the AI agent tooling ecosystem on GitHub: MCP servers, agent
+frameworks, skills and the tools around them. It measures which of them are still alive.**
 
 Every awesome-list tells you what was published. None of them tell you what has
 been touched since. This repository answers three questions every day, from public
@@ -16,8 +15,8 @@ GitHub metadata, and keeps the answers as a time series:
 
 - **46,953 repositories** across 13 topic queries in 2 tiers: **mcp** (21,769, 2+ stars), **agents** (25,184, 10+ stars).
 - **48.7%** pushed in the last 30 days.
-- **7,199 (15.3%) have no licence file at all**, which leaves them under exclusive copyright by default: no permission to use, copy or modify them, whatever the README suggests. A further 4,022 (8.6%) carry a licence GitHub cannot map to a standard identifier — those are licensed, just not in a way a procurement review waves through.
-- Only 9,189 of these repositories are even a year old. Among those, **28.3% have not been pushed since** — the headline 5.5% across the whole index is an artefact of how young this ecosystem is.
+- **7,199 (15.3%) have no licence file at all**, which leaves them under exclusive copyright by default: no permission to use, copy or modify them, whatever the README suggests. A further 4,022 (8.6%) carry a licence GitHub cannot map to a standard identifier. Those are licensed, just not in a way a procurement review waves through.
+- Only 9,189 of these repositories are even a year old. Among those, **28.3% have not been pushed since**. The headline 5.5% across the whole index is an artefact of how young this ecosystem is.
 - Churn since the previous run: **+298 new**, **-1016 gone**.
 
 ### Maintenance status
@@ -113,7 +112,7 @@ curated lists long after anyone stopped answering issues.
 
 No push in over a year, or archived, yet 200 or more stars, a permissive licence and
 five or more open issues. People still arrive; nobody answers. Each is forkable as it
-stands. A date, a star count and a licence field, never a verdict on the work.
+stands. The list reads a date, a star count and a licence field; it does not judge the work.
 
 | Repository | Stars | Open issues | Licence | Last push |
 | --- | ---: | ---: | --- | --- |
@@ -222,8 +221,8 @@ ecosystem itself.
 - Source: the GitHub REST search API, public repository metadata only. Nothing is
   cloned, downloaded or executed.
 - Tiers and their star floors:
-  - `mcp` — 2+ stars: `topic:mcp-server`, `topic:model-context-protocol`
-  - `agents` — 10+ stars: `topic:mcp`, `topic:claude-code`, `topic:ai-agents`, `topic:ai-agent`, `topic:agent-skills`, `topic:agentic-ai`, `topic:claude-skills`, `topic:autonomous-agents`, `topic:llm-agents`, `topic:agent-framework`, `topic:llm-tools`
+  - `mcp` (2+ stars): `topic:mcp-server`, `topic:model-context-protocol`
+  - `agents` (10+ stars): `topic:mcp`, `topic:claude-code`, `topic:ai-agents`, `topic:ai-agent`, `topic:agent-skills`, `topic:agentic-ai`, `topic:claude-skills`, `topic:autonomous-agents`, `topic:llm-agents`, `topic:agent-framework`, `topic:llm-tools`
   The MCP topics name one specific thing, so two stars is enough. The broad agent
   topics are also attached to every tutorial and course repository in the field; ten
   stars is where they start describing tools rather than exercises.
@@ -247,8 +246,8 @@ ecosystem itself.
 ## What this is not
 
 - **Not a security audit.** Nothing here says a repository is safe or unsafe. The
-  fields are dates, counts and licence identifiers — facts from the API, not
-  judgements about anyone's code.
+  fields are dates, counts and licence identifiers: facts from the API. None of
+  them judges anyone's code.
 - **Not a quality ranking.** Stars measure attention, not merit.
 - **Not a recommendation.** Check anything you install yourself.
 
@@ -257,26 +256,26 @@ ecosystem itself.
 Nothing in this repository is anyone else's work. No repository is cloned,
 downloaded, or copied. Two kinds of thing are published:
 
-1. **Facts from the GitHub API** — name, URL, star and fork counts, creation and
+1. **Facts from the GitHub API**: name, URL, star and fork counts, creation and
    last-push dates, detected licence identifier, archived flag. Facts about public
    repositories, not expression, and each one links to its source.
 2. **The repository's own one-line description**, as its author wrote it, truncated
    and shown next to a link to the original. This is the only third-party text
    here, and it is used the way every package registry and search index uses it.
 
-Everything else — the collector, the renderer, this text, the analysis — was
+Everything else (the collector, the renderer, this text, the analysis) was
 written for this repository.
 
 ## Licence
 
 - **Code** (`collect.py`, `render.py`, the workflow): MIT.
-- **The compilation** — the selection, structure and derived fields in `data/`:
+- **The compilation** (the selection, structure and derived fields in `data/`):
   CC0 1.0. Take it, chart it, fork it, no attribution required.
 - **The `description` field**: belongs to whoever wrote it, and is reproduced here
   as a short factual descriptor alongside a link to its source. It is not covered
   by the CC0 grant above, and this index makes no claim over it.
 - **The indexed repositories themselves**: their authors', under their own
-  licences — which is precisely what this index measures.
+  licences, which is precisely what this index measures.
 
 If you own a repository listed here and want its description dropped from the
 index, open an issue and it will be removed from the next run.

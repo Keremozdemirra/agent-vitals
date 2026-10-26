@@ -92,9 +92,8 @@ def render_readme(index: dict, today: dict, history: list[dict]) -> str:
     lines = [
         "# agent-vitals",
         "",
-        "**A daily census of the AI agent tooling ecosystem on GitHub — MCP servers, agent",
-        "frameworks, skills and the tools around them. Not a list of what exists, but a",
-        "measurement of what is still alive.**",
+        "**A daily census of the AI agent tooling ecosystem on GitHub: MCP servers, agent",
+        "frameworks, skills and the tools around them. It measures which of them are still alive.**",
         "",
         "Every awesome-list tells you what was published. None of them tell you what has",
         "been touched since. This repository answers three questions every day, from public",
@@ -116,14 +115,14 @@ def render_readme(index: dict, today: dict, history: list[dict]) -> str:
         "under exclusive copyright by default: no permission to use, copy or modify them, whatever the "
         "README suggests. A further "
         f"{t['nonstandard_licence']:,} ({t['nonstandard_licence_pct']}%) carry a licence GitHub cannot map "
-        "to a standard identifier — those are licensed, just not in a way a procurement review waves through.",
+        "to a standard identifier. Those are licensed, just not in a way a procurement review waves through.",
         f"- Only {t['old_enough_to_be_abandoned']:,} of these repositories are even a year old. Among those, "
-        f"**{t['abandoned_of_eligible_pct']}% have not been pushed since** — the headline "
+        f"**{t['abandoned_of_eligible_pct']}% have not been pushed since**. The headline "
         f"{t['abandoned_pct']}% across the whole index is an artefact of how young this ecosystem is.",
         (f"- First run: the whole index is new. Churn against yesterday appears from tomorrow."
          if today["churn"].get("first_run")
          else "- The query set changed today, so the arrivals below are repositories that came "
-              "into scope, not repositories that appeared in the world. Churn is comparable "
+              "into scope, whatever their age. Churn is comparable "
               "again from the next run."
          if today["churn"].get("scope_changed")
          else f"- Churn since the previous run: **+{today['churn']['arrived_count']} new**, "
@@ -189,7 +188,7 @@ def render_readme(index: dict, today: dict, history: list[dict]) -> str:
         "",
         "No push in over a year, or archived, yet 200 or more stars, a permissive licence and",
         "five or more open issues. People still arrive; nobody answers. Each is forkable as it",
-        "stands. A date, a star count and a licence field, never a verdict on the work.",
+        "stands. The list reads a date, a star count and a licence field; it does not judge the work.",
         "",
         "| Repository | Stars | Open issues | Licence | Last push |",
         "| --- | ---: | ---: | --- | --- |",
@@ -263,7 +262,7 @@ def render_readme(index: dict, today: dict, history: list[dict]) -> str:
         "  cloned, downloaded or executed.",
         "- Tiers and their star floors:",
     ] + [
-        f"  - `{name}` — {cfg['min_stars']}+ stars: "
+        f"  - `{name}` ({cfg['min_stars']}+ stars): "
         + ", ".join(f"`{q}`" for q in cfg["queries"])
         for name, cfg in index.get("groups", {}).items()
     ] + [
@@ -290,8 +289,8 @@ def render_readme(index: dict, today: dict, history: list[dict]) -> str:
         "## What this is not",
         "",
         "- **Not a security audit.** Nothing here says a repository is safe or unsafe. The",
-        "  fields are dates, counts and licence identifiers — facts from the API, not",
-        "  judgements about anyone's code.",
+        "  fields are dates, counts and licence identifiers: facts from the API. None of",
+        "  them judges anyone's code.",
         "- **Not a quality ranking.** Stars measure attention, not merit.",
         "- **Not a recommendation.** Check anything you install yourself.",
         "",
@@ -300,26 +299,26 @@ def render_readme(index: dict, today: dict, history: list[dict]) -> str:
         "Nothing in this repository is anyone else's work. No repository is cloned,",
         "downloaded, or copied. Two kinds of thing are published:",
         "",
-        "1. **Facts from the GitHub API** — name, URL, star and fork counts, creation and",
+        "1. **Facts from the GitHub API**: name, URL, star and fork counts, creation and",
         "   last-push dates, detected licence identifier, archived flag. Facts about public",
         "   repositories, not expression, and each one links to its source.",
         "2. **The repository's own one-line description**, as its author wrote it, truncated",
         "   and shown next to a link to the original. This is the only third-party text",
         "   here, and it is used the way every package registry and search index uses it.",
         "",
-        "Everything else — the collector, the renderer, this text, the analysis — was",
+        "Everything else (the collector, the renderer, this text, the analysis) was",
         "written for this repository.",
         "",
         "## Licence",
         "",
         "- **Code** (`collect.py`, `render.py`, the workflow): MIT.",
-        "- **The compilation** — the selection, structure and derived fields in `data/`:",
+        "- **The compilation** (the selection, structure and derived fields in `data/`):",
         "  CC0 1.0. Take it, chart it, fork it, no attribution required.",
         "- **The `description` field**: belongs to whoever wrote it, and is reproduced here",
         "  as a short factual descriptor alongside a link to its source. It is not covered",
         "  by the CC0 grant above, and this index makes no claim over it.",
         "- **The indexed repositories themselves**: their authors', under their own",
-        "  licences — which is precisely what this index measures.",
+        "  licences, which is precisely what this index measures.",
         "",
         "If you own a repository listed here and want its description dropped from the",
         "index, open an issue and it will be removed from the next run.",
