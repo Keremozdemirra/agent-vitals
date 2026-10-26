@@ -410,8 +410,8 @@ It recorded 1,016 departures against 40 the day before, which took the
 index down 718 to 46,953 and total stars down 731,000. Of the departures,
 974 are in the agents group and 607 carry `topic:claude-code`. The live
 search API at 16:15 UTC still lists 80 `topic:claude-code` repositories
-with 20,000 or more stars; the snapshot has 73, and six of the missing
-seven are in the departure list. In the 1,000 to 1,999 star band the live
+with 20,000 or more stars; the snapshot has 73, and six of the live
+list are absent from it, all six in the departure list. In the 1,000 to 1,999 star band the live
 API returns 250 and the snapshot has 194. Treat today's departures, the
 fall in `active` to 22,851 and the fall in stars as a collection gap, not
 movement in the ecosystem. `churn.scope_changed` is false. Tomorrow's
