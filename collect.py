@@ -124,8 +124,26 @@ def date_term(lo: dt.date, hi: dt.date) -> str:
     return f"created:{lo.isoformat()}..{hi.isoformat()}"
 
 
+def search_page(query: str, page: int, errors: list) -> dict:
+    """One search page, retried while GitHub flags it as cut short.
+
+    A search that times out server-side still answers 200, with
+    incomplete_results set and items missing. Ignoring the flag cost the
+    2026-10-26 census about a thousand repositories while it reported
+    itself complete.
+    """
+    for attempt in range(3):
+        payload = api_get(search_url(query, page))
+        if not payload.get("incomplete_results"):
+            return payload
+        time.sleep(10 * (attempt + 1))
+    note(errors, f"{query} page {page}: incomplete_results after 3 tries")
+    return payload
+
+
 def collect_pages(query: str, first: dict, found: dict, errors: list) -> None:
     """Drain a query already known to fit under the 1000-result ceiling."""
+    seen = {item["full_name"] for item in first.get("items", [])}
     for item in first.get("items", []):
         found[item["full_name"]] = item
     total = first.get("total_count", 0)
@@ -133,12 +151,15 @@ def collect_pages(query: str, first: dict, found: dict, errors: list) -> None:
     for page in range(2, pages + 1):
         time.sleep(2.2)  # authenticated search allows 30 requests/minute
         try:
-            payload = api_get(search_url(query, page))
+            payload = search_page(query, page, errors)
         except Exception as exc:
             note(errors, f"{query} page {page}: {type(exc).__name__}: {exc}")
             return
         for item in payload.get("items", []):
             found[item["full_name"]] = item
+            seen.add(item["full_name"])
+    if len(seen) < min(total, PAGE_CAP):
+        note(errors, f"{query}: {len(seen)} of {total} results returned")
 
 
 def harvest(base: str, stars: tuple[int, int | None], dates: tuple[dt.date, dt.date] | None,
@@ -157,7 +178,7 @@ def harvest(base: str, stars: tuple[int, int | None], dates: tuple[dt.date, dt.d
 
     time.sleep(2.2)
     try:
-        first = api_get(search_url(query, 1))
+        first = search_page(query, 1, errors)
     except Exception as exc:
         note(errors, f"{query}: {type(exc).__name__}: {exc}")
         return

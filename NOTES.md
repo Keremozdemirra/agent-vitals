@@ -401,3 +401,27 @@ repositories crossed into `abandoned`, 8 were newly archived, abandonment
 among eligible repositories is 28.7%, and the share with no licence file
 fell to 15.4% from 15.8% a week earlier; total stars rose 114,433 to
 22,020,377.
+
+## 2026-10-26
+
+The snapshot says `complete` with no errors, but it undercounts. Run
+40297228877 started at 09:08 UTC, not 03:23, and committed at 10:30 UTC.
+It recorded 1,016 departures against 40 the day before, which took the
+index down 718 to 46,953 and total stars down 731,000. Of the departures,
+974 are in the agents group and 607 carry `topic:claude-code`. The live
+search API at 16:15 UTC still lists 80 `topic:claude-code` repositories
+with 20,000 or more stars; the snapshot has 73, and six of the missing
+seven are in the departure list. In the 1,000 to 1,999 star band the live
+API returns 250 and the snapshot has 194. Treat today's departures, the
+fall in `active` to 22,851 and the fall in stars as a collection gap, not
+movement in the ecosystem. `churn.scope_changed` is false. Tomorrow's
+census will put the missing repositories back as arrivals.
+
+The collector took a search page's results as they came. A search GitHub
+cuts short still returns 200, with `incomplete_results` set and items
+missing. It now retries such a page up to three times and records an
+error if the flag is still set. It also checks that each drained slice
+returned as many repositories as its `total_count`, up to 1,000, and
+records an error when it did not. A short census will now say `partial`
+in its status. This run did not log which slices came back short, so the
+flag is the likely cause but is not proven.
