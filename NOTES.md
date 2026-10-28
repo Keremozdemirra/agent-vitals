@@ -437,3 +437,16 @@ whose 1,016 departures were a collection gap, so there is no new movement
 to report. Today's run is the first with the retry on `incomplete_results`
 and the per-slice count check; if those work, the missing repositories
 return as arrivals.
+
+The dispatched run committed at 10:14 UTC. The snapshot says `partial`
+with 7 errors, which is the new check doing its job: five slices came back
+short (the largest `topic:mcp-server stars:5`, 686 of 786) and two pages
+stayed `incomplete_results` after three tries. Of the 1,016 repositories
+missing on 2026-10-26, 934 returned, but 993 others left, so the index
+rose only 270 to 47,223. The flagged slices explain about 108 of the 993.
+The rest sit in slices the check did not flag: 601 are in the mcp group,
+529 have 2 to 4 stars and 380 have 16 to 99. The census is still dropping
+about a thousand repositories a day by a route the collector does not yet
+see, so day-on-day arrivals and departures are not movement until that is
+found. `churn.scope_changed` is false; abandonment among eligible
+repositories reads 27.5% against 28.3%, inside the same noise.
