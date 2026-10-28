@@ -450,3 +450,11 @@ about a thousand repositories a day by a route the collector does not yet
 see, so day-on-day arrivals and departures are not movement until that is
 found. `churn.scope_changed` is false; abandonment among eligible
 repositories reads 27.5% against 28.3%, inside the same noise.
+
+The gap also rewrites `first_seen`. The collector takes `first_seen` from
+the previous day's `servers.json` alone, so a repository missing for one
+day returns as new: 934 repositories that the 2026-10-25 index dated
+2026-09-04 or later now read 2026-10-27. Today's 993 departures will do the
+same when they return. Not fixed here: keeping the date across an absence
+needs a record of departed repositories, which is a change to what the
+repository stores and belongs in `docs/PIPELINE.md` first.
