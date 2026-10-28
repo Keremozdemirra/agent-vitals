@@ -425,3 +425,15 @@ returned as many repositories as its `total_count`, up to 1,000, and
 records an error when it did not. A short census will now say `partial`
 in its status. This run did not log which slices came back short, so the
 flag is the likely cause but is not proven.
+
+## 2026-10-27
+
+No snapshot for today at 08:12 UTC: the 03:23 slot had not started, and no
+run was queued. Since 2026-10-18 the first scheduled run of each day has
+started between 08:09 and 09:08 UTC, never near 03:23. Run 40471980420 was
+dispatched by hand at 08:13 UTC; the concurrency group queues any late
+scheduled run behind it. The newest data is still the 2026-10-26 snapshot,
+whose 1,016 departures were a collection gap, so there is no new movement
+to report. Today's run is the first with the retry on `incomplete_results`
+and the per-slice count check; if those work, the missing repositories
+return as arrivals.
